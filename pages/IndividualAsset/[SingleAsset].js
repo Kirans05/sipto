@@ -274,7 +274,6 @@ const AssetsPage = () => {
         <Box className={Styles.buttonGroup}>
           <button
             onClick={() => setNoOfDays(1)}
-            variant={'contained'}
             className={` ${
               NoOfDays == 1 ? Styles.buttonActie : Styles.individualButton
             }`}
@@ -283,7 +282,6 @@ const AssetsPage = () => {
           </button>
           <button
             onClick={() => setNoOfDays(7)}
-            variant={'contained'}
             className={` ${
               NoOfDays == 7 ? Styles.buttonActie : Styles.individualButton
             }`}
@@ -292,7 +290,6 @@ const AssetsPage = () => {
           </button>
           <button
             onClick={() => setNoOfDays(14)}
-            variant={'contained'}
             className={` ${
               NoOfDays == 14 ? Styles.buttonActie : Styles.individualButton
             }`}
@@ -301,7 +298,6 @@ const AssetsPage = () => {
           </button>
           <button
             onClick={() => setNoOfDays(30)}
-            variant={'contained'}
             className={` ${
               NoOfDays == 30 ? Styles.buttonActie : Styles.individualButton
             }`}
