@@ -12,7 +12,7 @@ import {
 import React, { useEffect, useState } from 'react';
 import Styles from '../Styles/PortfolioPage.module.css';
 import ArrowBackIcon from '@mui/icons-material/ArrowBack';
-import supabase from '../src/Config/supaBaseClient';
+import supabase from '../src/Config/supabaseClient';
 import PortfolioCard from '../src/components/PortfolioCard/PortfolioCard';
 import { useRouter } from 'next/router';
 import SidebarLayout from 'src/layouts/SidebarLayout';

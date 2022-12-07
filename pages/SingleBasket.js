@@ -16,7 +16,7 @@ import {
 } from 'chart.js';
 import { Line, Bar, Bubble, Scatter, Doughnut } from 'react-chartjs-2';
 import dynamic from 'next/dynamic';
-import supabase from '../src/Config/supaBaseClient';
+import supabase from '../src/Config/supabaseClient';
 
 ChartJS.register(
   CategoryScale,
