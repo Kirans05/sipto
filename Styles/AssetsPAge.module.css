@@ -1,0 +1,155 @@
+.AssetsPageBox{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    row-gap: 20px;
+    padding: 4%;
+}
+
+.coinCardBox{
+    display: flex;
+    width: 100%;
+    flex-direction: column;
+    row-gap: 20px;
+}
+
+
+.coinCardMainBox{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    width: 60%;
+    align-self: center;
+    padding: 2% 2%;
+    /* box-shadow: rgba(17, 17, 26, 0.1) 0px 1px 0px, rgba(17, 17, 26, 0.1) 0px 8px 24px, rgba(17, 17, 26, 0.1) 0px 16px 48px; */
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
+    border-radius: 30px;
+    border: 2px solid white;
+}
+
+.coinCardLeftPart {
+    display: flex;
+    flex-direction: row;
+    column-gap: 10px;
+    align-items: center;
+    width: 35%;
+}
+
+
+.coinCardLeftPart:hover{
+    cursor: pointer;
+}
+
+
+.coindCardRightPart{
+    display: flex;
+    flex-direction: row;
+    width: 65%;
+    justify-content: space-between;
+}
+
+.coindCardRightPart:hover{
+    cursor: pointer;
+}
+
+.coindCardRightPart .coinDetailsTypography{
+    font-size: 15px;
+}
+
+.coinCardLeftPart .coinDetailsTypography{
+    font-size: 15px;
+}
+
+
+@media (min-width:0px) and (max-width:480px){
+    .AssetsPageBox{
+        padding: 2%;
+    }
+    
+    .coinCardBox{
+    }
+    
+    
+    .coinCardMainBox{
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        width: 100%;
+        align-self: center;
+        padding: 5% 5%;
+        row-gap: 20px;
+    }
+    
+    .coinCardLeftPart {
+        display: flex;
+        flex-direction: row;
+        column-gap: 20px;
+        align-items: center;
+        width: 100%;
+    }
+    
+    
+    .coindCardRightPart{
+        display: flex;
+        flex-direction: row;
+        width: 100%;
+        justify-content: space-between;
+    }
+
+    .coindCardRightPart .coinDetailsTypography{
+        font-size: 12px;
+    }
+    
+    .coinCardLeftPart .coinDetailsTypography{
+        font-size: 12px;
+    }
+}
+
+@media (min-width:481px) and (max-width:768px){
+    .AssetsPageBox{
+        padding: 4%;
+    }
+    
+    .coinCardBox{
+    }
+    
+    
+    .coinCardMainBox{
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        width: 80%;
+        align-self: center;
+        padding: 5% 5%;
+        row-gap: 20px;
+    }
+    
+    .coinCardLeftPart {
+        display: flex;
+        flex-direction: row;
+        column-gap: 20px;
+        align-items: center;
+        width: 100%;
+    }
+    
+    
+    .coindCardRightPart{
+        display: flex;
+        flex-direction: row;
+        width: 100%;
+        justify-content: space-between;
+    }
+
+    .coindCardRightPart .coinDetailsTypography{
+        font-size: 13px;
+    }
+    
+    .coinCardLeftPart .coinDetailsTypography{
+        font-size: 13px;
+    }
+}
+
+@media (min-width:769px) {
+   
+} 

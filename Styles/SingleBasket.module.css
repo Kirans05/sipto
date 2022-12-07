@@ -1,0 +1,528 @@
+.mainBox{
+    display: flex;
+    flex-direction: column;
+    row-gap: 50px;
+    background-color: rgb(16,22,50);
+    padding: 4%;
+    color: white;
+}
+
+.mainBox .basketBreifInfo{
+    width: 85%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1% 2%;
+    align-self: center;
+    background-color: rgb(42,42,42);
+    color: white;
+    border-radius: 15px;
+    border-top: 2px solid rgb(191,221,119);
+    border-left: 2px solid rgb(187,210,116);
+    border-bottom: 2px solid rgb(76,111,68);
+    border-right: 2px solid rgb(130,202,110);
+}
+
+.basketBreifInfo .basketlogo{
+    width: 15%;
+    height: 15%;
+    border-radius: 100%;
+}
+
+.basketBreifInfo .basketFirstpart {
+    display: flex;
+    flex-direction: column;
+    row-gap: 20px;
+    width: 40%;
+}
+
+.basketFirstpart .precaution {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    column-gap: 20px;
+    align-items: center;
+}
+
+.precaution .mediumRisk{
+    background-color: rgb(251,255,40);
+    color: black;
+    padding: 1%;
+    border-radius: 10px;
+}
+
+.basketBreifInfo .basketSecondPart{
+    display: flex;
+    column-gap: 30px;
+}
+
+.basketSecondPart  .oneYear{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    row-gap: 10px;
+}
+.basketSecondPart .sixMonth {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    row-gap: 10px;
+}
+.basketSecondPart .threeYear{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    row-gap: 10px;
+}
+
+.basketBreifInfo .basketThirdpart {
+    display: flex;
+    width: 120px;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+}
+
+
+.basketAssestsImage {
+    min-width: 40px;
+    max-width: 40px;
+}
+
+.mainBox .mainBoxSecondHalf{
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    /* border: 2px solid white; */
+    align-self: center;
+}
+
+.mainBoxSecondHalf .mainBoxLeftPart{
+    width: 66%;
+    display: flex;
+    flex-direction: column;
+    row-gap: 25px;
+}
+
+.mainBoxSecondHalf .mainBoxRightPart {
+    width: 30%;
+    display: flex;
+    flex-direction: column;
+    row-gap: 20px;
+    height: fit-content;
+    position: sticky;
+    top: 75px;
+    background-color: rgb(30,30,30);
+}
+
+.mainBoxSecondHalf .mainBoxLeftPart .investmentvariousOptions{
+    width: 96%;
+    display: flex;
+    column-gap: 25px;
+    border-bottom: 2px solid rgb(66,66,66);
+    padding: 1% 2%;
+    position: sticky;
+    top: 80px;
+    z-index: 1;
+    background-color: rgb(30,30,30);
+}
+
+.investmentvariousOptions .optionButton:hover{
+    cursor: pointer;
+}
+
+.mainBoxLeftPart .buttonGroup{
+    width: fit-content;
+    display: flex;
+    align-self: flex-end;
+    width: 30%;
+}
+
+.mainBoxLeftPart .buttonGroup .individualButton {
+    background-color: black;
+    border: 1px solid rgb(255,215,111);
+    padding: 4% 5%;
+    border-radius: 10px;
+}
+
+.mainBoxLeftPart .buttonGroup .individualButton:hover {
+   cursor: pointer;
+}
+
+.mainBoxLeftPart .buttonGroup .buttonActive {
+    background-color:  rgb(255,215,111);
+    border: 1px solid rgb(255,215,111);
+    padding: 4% 5%;
+    border-radius: 10px;
+    color: black;
+}
+
+.mainBoxLeftPart .buttonGroup .buttonActive:hover {
+   cursor: pointer;
+}
+
+
+.mainBoxLeftPart .highChartReact{
+}
+
+.mainBoxRightPart .invsetmentbutton{
+    background-color: rgb(40,255,164);
+    color: black;
+}
+
+.divider{
+    /* border-bottom: 1px solid white; */
+    border-bottom: 2px solid rgb(66,66,66);
+}
+
+.mainBoxRightPart .wishlistButton {
+    background-color: rgb(30,30,30);
+    color: gold;
+    border: 2px solid gold;
+}
+
+.mainBoxRightPart .investmentAmount{
+    display: flex;
+    flex-direction: column;
+    padding: 3% 0% 0% 3%;
+}
+
+
+.dognutBox_and_info {
+    width: 100%;
+    display: flex;
+    column-gap: 20px;
+}
+
+.dognutBox_and_info .dognutBox {
+    width: 60%;
+    /* height: 50vh; */
+    /* border: 2px solid white; */
+}
+
+.dognut_coin_info{
+    display: flex;
+    flex-direction: column;
+    row-gap: 20px;
+    width: 40%;
+}
+
+.dognut_coin_info .coinTypography{
+    width: 80%;
+    padding: 3% 2%;
+    border-radius: 10px;
+    border-top: 1px solid black;
+    border-right: 1px solid black;
+    border-bottom: 1px solid black;
+    display: flex;
+    justify-content: space-between;
+    background-color: rgb(43,43,43);
+}
+
+.dognut_coin_info .coinTypography:hover{
+    cursor: pointer;
+}
+
+.futureTrend {
+    width: 96%;
+    display: flex;
+    flex-direction: column;
+    row-gap: 20px;
+    padding: 1% 2%;
+}
+
+.futureTrend .futureTrendTypography{
+    font-size: 25px;
+}
+
+.mainBoxLeftPart .variousReturnsBox{
+    width: 96%;
+    display: flex;
+    column-gap: 25px;
+    border-bottom: 2px solid rgb(66,66,66);
+    padding: 1% 2%;
+}
+
+.variousReturnsBox .returnButton:hover{
+    cursor: pointer;
+}
+
+.annualizedReturns {
+    width: 96%;
+    display: flex;
+    justify-content: space-between;
+    padding: 1% 2%;
+}
+
+.annualizedReturns .title{
+    display: flex;
+    flex-direction: column;
+    row-gap: 20px;
+    align-items: flex-start;
+}
+
+.annualizedReturns .sixMonth, .oneYear, .threeYear, .All{
+    display: flex;
+    flex-direction: column;
+    row-gap: 20px;
+    align-items: center;
+}
+
+.AbsoluteReturns {
+    width: 96%;
+    display: flex;
+    justify-content: space-between;
+    padding: 1% 2%;
+}
+
+.AbsoluteReturns .title{
+    display: flex;
+    flex-direction: column;
+    row-gap: 20px;
+    align-items: flex-start;
+}
+
+.AbsoluteReturns .sixMonth, .oneYear, .threeYear, .All{
+    display: flex;
+    flex-direction: column;
+    row-gap: 20px;
+    align-items: center;
+}
+
+.mainBoxLeftPart .overView {
+    width: 96%;
+    display: flex;
+    flex-direction: column;
+    row-gap: 20px;
+    padding: 2% ;
+    border-top: 2px solid rgb(103,117,73);
+    border-left: 2px solid rgb(175,209,114);
+    border-bottom: 2px solid rgb(76,120,76);
+    border-right: 2px solid rgb(123,201,110);
+    background-color: rgb(47,47,47);
+    border-radius: 15px;
+}
+
+.modalBoxStyle {
+    width: 30%;
+    position: absolute;
+    top: 25%;
+    left: 35%;
+    box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
+    display: flex;
+    flex-direction: column;
+    row-gap: 50px;
+    padding: 2% 2%;
+    background-color: rgb(30,30,30);
+}
+
+.modalHeading {
+    text-align: center;
+    font-size: 20px;
+    font-weight: 600;
+}
+
+
+@media (min-width:0px) and (max-width:480px){
+    .mainBox{
+        padding: 2%;
+    }
+
+    .mainBox .basketBreifInfo{
+        width: 100%;
+        flex-direction: column;
+        padding: 3% 3%;
+        align-items: flex-start;
+        row-gap: 30px;
+    }
+
+    .basketBreifInfo .basketlogo{
+        display: none;
+    }
+
+    .basketBreifInfo .basketFirstpart {
+        width: 100%;
+    }
+    
+    .basketBreifInfo .basketSecondPart{
+        width: 100%;
+        justify-content: space-between;
+    }
+    
+    .basketBreifInfo .basketThirdpart {
+        width: 100%;
+        justify-content: space-evenly;
+    }
+
+    .mainBox .mainBoxSecondHalf{
+        width: 100%;
+        flex-direction: column;
+    }
+
+    .mainBoxSecondHalf .mainBoxLeftPart{
+        width: 100%;
+    }
+
+    .mainBoxLeftPart .buttonGroup{
+        align-self: center;
+        width: 100%;
+        display: flex;
+        justify-content: center;
+    }
+
+    .mainBoxLeftPart .buttonGroup .individualButton {
+        padding: 3% 3%;
+        border-radius: 10px;
+    }
+    
+    .mainBoxLeftPart .buttonGroup .buttonActive {
+        padding: 3% 3%;
+        border-radius: 10px;
+    }
+
+    .futureTrend {
+        width: 100%;
+    }
+
+    .futureTrend .futureTrendTypography{
+        font-size: 20px;
+    }
+
+    .dognutBox_and_info {
+        flex-direction: column;
+    }
+    
+    .dognutBox_and_info .dognutBox {
+        width: 100%;
+    }
+
+    .dognut_coin_info{
+        width: 100%;
+    }
+    
+    .dognut_coin_info .coinTypography{
+        align-self: center;
+    } 
+
+    .mainBoxSecondHalf .mainBoxRightPart {
+        width: 100%;
+        bottom: 5px;
+        margin-top: 15px;
+    }
+
+    .mainBoxRightPart .wishlistButton {
+        display: none;
+    }
+
+    
+    .modalBoxStyle {
+        width: 90%;
+        background-color: rgb(30,30,30);
+        top: 30%;
+        left: 5%;
+    }
+}
+
+@media (min-width:481px) and (max-width:768px){
+    .mainBox{
+        padding: 2%;
+    }
+
+    .mainBox .basketBreifInfo{
+        width: 100%;
+        flex-direction: column;
+        padding: 3% 3%;
+        align-items: flex-start;
+        row-gap: 30px;
+    }
+
+    .basketBreifInfo .basketlogo{
+        display: none;
+    }
+
+    .basketBreifInfo .basketFirstpart {
+        width: 100%;
+    }
+    
+    .basketBreifInfo .basketSecondPart{
+        width: 100%;
+        justify-content: space-between;
+    }
+    
+    .basketBreifInfo .basketThirdpart {
+        width: 100%;
+        justify-content: space-evenly;
+    }
+
+    .mainBox .mainBoxSecondHalf{
+        width: 100%;
+        flex-direction: column;
+    }
+
+    .mainBoxSecondHalf .mainBoxLeftPart{
+        width: 100%;
+    }
+
+    .mainBoxLeftPart .buttonGroup{
+        align-self: center;
+        width: 60%;
+        display: flex;
+        justify-content: center;
+    }
+
+    .mainBoxLeftPart .buttonGroup .individualButton {
+        padding: 3% 3%;
+        border-radius: 10px;
+    }
+    
+    .mainBoxLeftPart .buttonGroup .buttonActive {
+        padding: 3% 3%;
+        border-radius: 10px;
+    }
+
+    .futureTrend {
+        width: 100%;
+    }
+
+    .futureTrend .futureTrendTypography{
+        font-size: 20px;
+    }
+
+    .dognutBox_and_info {
+        flex-direction: column;
+    }
+    
+    .dognutBox_and_info .dognutBox {
+        width: 100%;
+    }
+
+    .dognut_coin_info{
+        width: 100%;
+    }
+    
+    .dognut_coin_info .coinTypography{
+        align-self: center;
+    } 
+
+    .mainBoxSecondHalf .mainBoxRightPart {
+        width: 100%;
+        bottom: 5px;
+        margin-top: 15px;
+    }
+
+    .mainBoxRightPart .wishlistButton {
+        display: none;
+    }
+
+    
+    .modalBoxStyle {
+        width: 90%;
+        background-color: rgb(30,30,30);
+        top: 30%;
+        left: 5%;
+    }
+}
+
+@media (min-width:769px) {
+   
+}

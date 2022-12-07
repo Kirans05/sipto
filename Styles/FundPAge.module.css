@@ -1,0 +1,73 @@
+.fundPageBox{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    row-gap: 20px;
+    padding: 10%;
+}
+
+.fundPageBtn{
+    background-color: rgb(140,124,240);
+    padding: 1% 2%;
+    border-radius: 10px;
+    width: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    column-gap: 10px;
+}
+
+.fundPageBtn:hover{
+    cursor: pointer;
+}
+
+.fundPageBox .title{
+    font-size: 25px;
+}
+
+.fundPageBox .inputFeilds{
+    width: 50%;
+}
+
+
+@media (min-width:0px) and (max-width:480px){
+    .fundPageBox{
+        row-gap: 20px;
+        padding: 15% 2%;
+    }
+    
+    .fundPageBtn{
+        width: 100%;
+    }
+    
+    .fundPageBox .title{
+        font-size: 20px;
+    }
+    
+    .fundPageBox .inputFeilds{
+        width: 100%;
+    }
+}
+
+@media (min-width:481px) and (max-width:768px){
+    .fundPageBox{
+        row-gap: 20px;
+        padding: 15% 2%;
+    }
+    
+    .fundPageBtn{
+        width: 100%;
+    }
+    
+    .fundPageBox .title{
+        font-size: 22px;
+    }
+    
+    .fundPageBox .inputFeilds{
+        width: 100%;
+    }
+}
+
+@media (min-width:769px) {
+   
+} 

@@ -1,0 +1,104 @@
+.loginPageBox{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    row-gap: 20px;
+    padding: 10%;
+}
+
+.signInBtn{
+    background-color: rgb(140,124,240);
+    padding: 1% 2%;
+    border-radius: 10px;
+    width: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.signInBtn:hover{
+    cursor: pointer;
+}
+
+.loginPageBox .welcomeBack{
+    font-size: 30px;
+}
+
+.loginPageBox .credentials{
+    font-size: 20px;
+}
+
+.loginPageBox .emailTextFeild{
+    width: 50%;
+    margin: 10px;
+}
+
+.loginPageBox .errorMsg{
+    color: red;
+    font-size: 15px;
+}
+
+
+@media (min-width:0px) and (max-width:480px){
+    .loginPageBox .welcomeBack{
+        font-size: 20px;
+    }
+    
+    .loginPageBox .credentials{
+        font-size: 15px;
+    }
+
+    .loginPageBox .emailTextFeild{
+        width: 100%;
+        margin: 10px;
+    }
+
+    .loginPageBox{
+        padding: 10% 3%;
+    }
+    
+    .signInBtn{
+        padding: 1% 3%;
+        border-radius: 10px;
+        width: 100%;
+        height: 40px;
+    }
+
+    .loginPageBox .errorMsg{
+        font-size: 12px;
+    }
+}
+
+@media (min-width:481px) and (max-width:768px){
+    .loginPageBox .welcomeBack{
+        font-size: 20px;
+    }
+    
+    .loginPageBox .credentials{
+        font-size: 15px;
+    }
+
+    .loginPageBox .emailTextFeild{
+        width: 100%;
+        margin: 10px;
+    }
+
+    .loginPageBox{
+        padding: 10% 5%;
+    }
+    
+    .signInBtn{
+        padding: 1% 3%;
+        border-radius: 10px;
+        width: 100%;
+        height: 40px;
+    }
+
+    .loginPageBox .errorMsg{
+        font-size: 15px;
+    }
+}
+
+@media (min-width:769px) {
+   
+} 

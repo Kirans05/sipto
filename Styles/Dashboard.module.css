@@ -1,0 +1,348 @@
+.dashboardMainBox{
+    padding: 4%;
+    display: flex;
+    column-gap: 20px;
+    flex-wrap: wrap;
+    row-gap: 30px;
+}
+
+.portfolioBox{
+    width: 35%;
+    padding: 5% 2% 2%;
+    border-radius: 20px;
+    background-color: rgb(94,53,177);
+    position: relative;
+    overflow-y: hidden;
+    overflow-x: hidden;
+    height: 180px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    align-items: flex-start;
+    row-gap: 6px;
+}
+
+.portfolioBox .portfolioBackgroundCircle1{
+    position: absolute;
+    background-color: rgb(69,39,160);
+    height: 100px;
+    width: 200px;
+    border-radius: 150px 150px 0 0;
+    top: -20px;
+    right: -55px;
+    /* transform: translate(-50%, -50%); */
+    transform: rotate(270deg);
+    z-index: 1;
+}
+
+.portfolioBox .portfolioBackgroundCircle2{
+    position: absolute;
+    background-color: rgb(81,46,169);
+    height: 100px;
+    width: 200px;
+    border-radius: 150px 150px 0 0;
+    top: -20px;
+    right: 20px;
+    /* transform: translate(-50%, -50%); */
+    transform: rotate(250deg);
+}
+
+.totalOrderBox{
+    width: 35%;
+    padding: 5% 2% 2%;
+    border-radius: 20px;
+    background-color: rgb(30,136,229);
+    position: relative;
+    overflow-y: hidden;
+    overflow-x: hidden;
+    height: 180px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    align-items: flex-start;
+    row-gap: 5px;
+}
+
+.totalOrderBox .totalOrderBackgroundCircle1{
+    position: absolute;
+    background-color: rgb(21,101,192);
+    height: 100px;
+    width: 200px;
+    border-radius: 150px 150px 0 0;
+    top: -20px;
+    right: -55px;
+    /* transform: translate(-50%, -50%); */
+    transform: rotate(270deg);
+    z-index: 1;
+}
+
+.totalOrderBox .totalOrderBackgroundCircle2{
+    position: absolute;
+    background-color: rgb(25,118,211);
+    height: 100px;
+    width: 200px;
+    border-radius: 150px 150px 0 0;
+    top: -20px;
+    right: 20px;
+    /* transform: translate(-50%, -50%); */
+    transform: rotate(250deg);
+}
+
+.totalOrderBox .fund_withdrawBtn{
+    display: flex;
+    column-gap: 20px;
+    width: 100%;
+}
+
+.dashboardMainBox .TasksAnalytics{
+    width: 73%;
+}
+
+.portfolioBox .portfolionBtn{
+    color: black;
+    background-color: white;
+    border-radius: 10px;
+    padding: 2% 3%;
+    border: none;
+}
+
+.portfolioBox .portfolionBtn:hover{
+    cursor: pointer;
+}
+
+.totalOrderBox .withdrawBtn{
+    color: black;
+    background-color: white;
+    border-radius: 10px;
+    padding: 2% 3%;
+    border: none;
+}
+
+.totalOrderBox .addFundBtn{
+    color: black;
+    background-color: white;
+    border-radius: 10px;
+    padding: 2% 3%;
+    border: none;
+}
+
+.totalOrderBox .addFundBtn:hover{
+    cursor: pointer;
+}
+
+.totalOrderBox .withdrawBtn:hover{
+    cursor: pointer;
+}
+
+.portfolioBox .portfolioTitle{
+    font-size: 24px;
+    z-index: 2;
+}
+
+.portfolioBox .portfolioAmount{
+    font-size: 22px;
+}
+
+.totalOrderBox .fundAmount{
+    font-size: 22px;
+}
+
+.totalOrderBox .fundTitle{
+    font-size: 24px;
+    z-index: 2;
+}
+
+.alertMessage{
+    width: 90%;
+    margin-left: 2%;
+}
+
+.alertMessage .kycVerificationButton{
+    text-decoration: underline;
+    color: blue;
+}
+
+.alertMessage .kycVerificationButton:hover{
+    cursor: pointer;
+}
+
+
+
+
+@media (min-width:0px) and (max-width:480px){
+    .dashboardMainBox{
+        padding: 4%;
+        flex-direction: column;
+        flex-wrap: nowrap;
+        row-gap: 30px;
+    }
+    
+    .portfolioBox{
+        width: 100%;
+        padding: 5% 5% 4%;
+    }
+    
+    .portfolioBox .portfolioBackgroundCircle1{
+    }
+    
+    .portfolioBox .portfolioBackgroundCircle2{
+    }
+    
+    .totalOrderBox{
+        width: 100%;
+        padding: 5% 5% 4%;
+    }
+    
+    .totalOrderBox .totalOrderBackgroundCircle1{
+    }
+    
+    .totalOrderBox .totalOrderBackgroundCircle2{
+    }
+    
+    .totalOrderBox .fund_withdrawBtn{
+        display: flex;
+        column-gap: 20px;
+        width: 100%;
+    }
+    
+    .dashboardMainBox .TasksAnalytics{
+        width: 100%;
+    }
+    
+    .portfolioBox .portfolionBtn{
+        color: black;
+        background-color: white;
+        border-radius: 10px;
+        padding: 2% 3%;
+        border: none;
+    }
+    
+    .totalOrderBox .withdrawBtn{
+        color: black;
+        background-color: white;
+        border-radius: 10px;
+        padding: 2% 3%;
+        border: none;
+    }
+    
+    .totalOrderBox .addFundBtn{
+        color: black;
+        background-color: white;
+        border-radius: 10px;
+        padding: 2% 3%;
+        border: none;
+    }
+
+    
+    .portfolioBox .portfolioTitle{
+        font-size: 20px;
+    }
+
+    .portfolioBox .portfolioAmount{
+        font-size: 18px;
+    }
+
+    .totalOrderBox .fundAmount{
+        font-size: 18px;
+    }
+
+    .totalOrderBox .fundTitle{
+        font-size: 20px;
+    }
+
+    .alertMessage{
+        width: 90%;
+        margin-left: 2%;
+    }
+}
+
+@media (min-width:481px) and (max-width:768px){
+    .dashboardMainBox{
+        padding: 4%;
+        flex-direction: column;
+        flex-wrap: nowrap;
+        row-gap: 30px;
+    }
+    
+    .portfolioBox{
+        width: 100%;
+        padding: 5% 5% 4%;
+    }
+    
+    .portfolioBox .portfolioBackgroundCircle1{
+    }
+    
+    .portfolioBox .portfolioBackgroundCircle2{
+    }
+    
+    .totalOrderBox{
+        width: 100%;
+        padding: 5% 5% 4%;
+    }
+    
+    .totalOrderBox .totalOrderBackgroundCircle1{
+    }
+    
+    .totalOrderBox .totalOrderBackgroundCircle2{
+    }
+    
+    .totalOrderBox .fund_withdrawBtn{
+        display: flex;
+        column-gap: 20px;
+        width: 100%;
+    }
+    
+    .dashboardMainBox .TasksAnalytics{
+        width: 100%;
+    }
+    
+    .portfolioBox .portfolionBtn{
+        color: black;
+        background-color: white;
+        border-radius: 10px;
+        padding: 2% 3%;
+        border: none;
+    }
+    
+    .totalOrderBox .withdrawBtn{
+        color: black;
+        background-color: white;
+        border-radius: 10px;
+        padding: 2% 3%;
+        border: none;
+    }
+    
+    .totalOrderBox .addFundBtn{
+        color: black;
+        background-color: white;
+        border-radius: 10px;
+        padding: 2% 3%;
+        border: none;
+    }
+
+    
+    .portfolioBox .portfolioTitle{
+        font-size: 20px;
+    }
+
+    .portfolioBox .portfolioAmount{
+        font-size: 18px;
+    }
+
+    .totalOrderBox .fundAmount{
+        font-size: 18px;
+    }
+
+    .totalOrderBox .fundTitle{
+        font-size: 20px;
+    }
+
+    .alertMessage{
+        width: 90%;
+        margin-left: 2%;
+    }
+}
+
+@media (min-width:769px) {
+   
+} 

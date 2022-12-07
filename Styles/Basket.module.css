@@ -1,0 +1,129 @@
+.basketPageBox{
+    padding: 4%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.basketMainBox {
+    width: 50%;
+    padding: 2% 3%;
+    display: flex;
+    flex-direction: row;
+    background-color: rgb(34,34,34);
+    color: white;
+    border-radius: 15px;
+    border-top: 2px solid rgb(56,113,76);
+    border-left: 2px solid rgb(63,196,109);
+    border-bottom: 2px solid rgb(60,58,43);
+    border-right: 2px solid rgb(32,32,32);
+    column-gap: 30px;
+    align-items: center;
+}
+
+.basketMainBox:hover{
+    cursor: pointer;
+}
+
+.basketMainBox .basketlogo{
+    width: 15%;
+    height: 15%;
+    border-radius: 40%;
+}
+
+.mainBasketRightPart{
+    display: flex;
+    flex-direction: column;
+    row-gap: 20px;
+}
+
+
+.basketMainBox .basketImagesBox {
+    display: flex;
+    flex-direction: row;
+    column-gap: 10px;
+}
+
+.basketAssestsImage{
+    min-width: 40px;
+    max-width: 40px;
+}
+
+.investment_amount_and_returns_box {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.mainBasketRightPart .title{
+    font-size: 15px;
+}
+
+.mainBasketRightPart .description{
+    font-size: 13px;
+}
+
+
+@media (min-width:0px) and (max-width:480px){
+    .basketPageBox{
+        padding: 2%;
+    }
+    
+    .basketMainBox {
+        width: 100%;
+        padding: 2% 3%;
+        flex-direction: column;
+        row-gap: 20px;
+    }
+    
+    .basketMainBox .basketlogo{
+        width: 25%;
+        height: 25%;
+        border-radius: 40%;
+    }
+    
+    
+    .basketMainBox .basketImagesBox {
+        flex-wrap: wrap;
+        column-gap: 5px;
+    }
+    
+    .basketAssestsImage{
+        min-width: 30px;
+        max-width: 30px;
+    }
+}
+
+@media (min-width:481px) and (max-width:768px){
+    .basketPageBox{
+        padding: 4%;
+    }
+    
+    .basketMainBox {
+        width: 100%;
+        padding: 3% 3%;
+        flex-direction: row;
+        row-gap: 20px;
+    }
+    
+    .basketMainBox .basketlogo{
+        width: 25%;
+        height: 25%;
+        border-radius: 40%;
+    }
+    
+    
+    .basketMainBox .basketImagesBox {
+        flex-wrap: wrap;
+        column-gap: 5px;
+    }
+    
+    .basketAssestsImage{
+        min-width: 40px;
+        max-width: 40px;
+    }
+}
+
+@media (min-width:769px) {
+   
+}

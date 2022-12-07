@@ -1,0 +1,112 @@
+.SignupPageBox{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    row-gap: 20px;
+    padding: 10%;
+}
+
+.signInBtn{
+    background-color: rgb(140,124,240);
+    padding: 1% 2%;
+    border-radius: 10px;
+    width: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.signInBtn:hover{
+    cursor: pointer;
+}
+
+.SignupPageBox .Signup{
+    font-size: 30px;
+}
+
+.SignupPageBox .credentials{
+    font-size: 20px;
+}
+
+.SignupPageBox .emailTextFeild{
+    width: 50%;
+    margin: 10px;
+}
+
+.SignupPageBox .errorMsg{
+    color: red;
+    font-size: 15px;
+}
+
+
+@media (min-width:0px) and (max-width:480px){
+    .SignupPageBox{
+        padding: 10% 3%;
+    }
+    
+    .signInBtn{
+        padding: 1% 3%;
+        border-radius: 10px;
+        width: 100%;
+        height: 40px;
+    }
+    
+    .signInBtn:hover{
+        cursor: pointer;
+    }
+    
+    .SignupPageBox .Signup{
+        font-size: 20px;
+    }
+    
+    .SignupPageBox .credentials{
+        font-size: 15px;
+    }
+    
+    .SignupPageBox .emailTextFeild{
+        width: 100%;
+        margin: 10px;
+    }
+    
+    .SignupPageBox .errorMsg{
+        font-size: 12px;
+    }
+}
+
+@media (min-width:481px) and (max-width:768px){
+    .SignupPageBox{
+        padding: 10% 5%;
+    }
+    
+    .signInBtn{
+        padding: 1% 3%;
+        border-radius: 10px;
+        width: 100%;
+        height: 40px;
+    }
+    
+    .signInBtn:hover{
+        cursor: pointer;
+    }
+    
+    .SignupPageBox .Signup{
+        font-size: 20px;
+    }
+    
+    .SignupPageBox .credentials{
+        font-size: 15px;
+    }
+    
+    .SignupPageBox .emailTextFeild{
+        width: 100%;
+        margin: 10px;
+    }
+    
+    .SignupPageBox .errorMsg{
+        font-size: 12px;
+    }
+}
+
+@media (min-width:769px) {
+   
+} 
