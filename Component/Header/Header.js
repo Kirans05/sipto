@@ -58,6 +58,7 @@ const Header = () => {
   const signOutHandler = async () => {
     const res = await supabase.auth.signOut();
     setRerender(!reRender)
+    router.push("/")
   };
 
   const list = (anchor) => (
@@ -207,7 +208,7 @@ const Header = () => {
               </Link>
             </ListItem>
             <ListItem component="div" className={'listItem'}>
-              <Link href="/">
+              {/* <Link href="/"> */}
               <Button
                 className="signoutBtn"
                 disableRipple
@@ -216,7 +217,7 @@ const Header = () => {
               >
                 Sign Out
               </Button>
-              </Link>
+              {/* </Link> */}
             </ListItem>
           </List>
         )}
