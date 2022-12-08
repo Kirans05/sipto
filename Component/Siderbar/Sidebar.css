@@ -1,0 +1,63 @@
+.relativeSidebarBox{
+    position: relative;
+    width: 20%;
+}
+
+.SidebarMainBox{
+    width: 20%;
+    display: flex;
+    flex-direction: column;
+    background-color: rgb(24,30,56);
+    border-right: 4px solid rgb(38,43,71);
+    position: fixed;
+    left: 0px;
+    top: 0px;
+    z-index: 4;
+    height: 101vh;
+}
+
+.SidebarMainBox .notActive{
+    color: rgb(174,176,186);
+}
+.SidebarMainBox .active{
+    color: white;
+}
+.SidebarMainBox .notActive:hover{
+    color: white;
+    background-color: rgb(37,43,67)
+}
+.SidebarMainBox .active:hover{
+    color: white;
+    background-color: rgb(37,43,67)
+}
+
+.SidebarMainBox .listItem:hover{
+    background-color: rgb(37,43,67);
+    border-radius: 10px;
+}
+
+.listItem .signoutBtn{
+    color: rgb(174,176,186);
+}
+
+.listItem .signoutBtn:hover{
+    color: white;
+    background-color: rgb(37,43,67);
+}
+
+.SidebarMainBox .AppName{
+    padding-left: 50px;
+    font-size: 20px;
+    margin-top: 20px;
+}
+
+@media (min-width:0px) and (max-width:1260px) {
+    .SidebarMainBox{
+        display: none;
+    }
+
+    .relativeSidebarBox{
+        display: none;
+    }
+}
+

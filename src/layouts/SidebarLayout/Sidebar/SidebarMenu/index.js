@@ -188,11 +188,12 @@ const SubMenuWrapper = styled(Box)(
 );
 
 function SidebarMenu() {
-  const [rerender, setRerender] = useState(true)
+
+  const [rerender, setRerender] = useState(false)
   const { closeSidebar } = useContext(SidebarContext);
   const router = useRouter();
   const currentRoute = router.pathname;
-  const [userExists, setUserExists] = useState( false);
+  const [userExists, setUserExists] = useState(false);
 
   const signOutHandler = async () => {
     const res = await supabase.auth.signOut();
@@ -212,147 +213,149 @@ function SidebarMenu() {
     <>
       <MenuWrapper>
         <SubMenuWrapper>
-          <List component="div">
-              <ListItem component="div">
-                <Link href="/LoginPage">
-                  <Button
-                    className={currentRoute === '/LoginPage' ? 'active' : ''}
-                    disableRipple
-                    // onClick={() => router.push("LoginPage")}
-                    startIcon={<LoginIcon />}
-                    sx={{ display: userExists == false ? 'flex' : 'none' }}
-                  >
-                    Login
-                  </Button>
-                </Link>
-              </ListItem>
-              <ListItem component="div">
-                <Link href="/SignUpPage">
-                  <Button
-                    className={currentRoute === '/SignUpPage' ? 'active' : ''}
-                    disableRipple
-                    // onClick={() => router.push("SignUpPage")}
-                    startIcon={<HowToRegIcon />}
-                    sx={{ display: userExists == false ? 'flex' : 'none' }}
-                  >
-                    Sign Up
-                  </Button>
-                </Link>
-              </ListItem>
-            </List>
-            <List component="div">
-              <ListItem component="div">
-                <Link href="/dashboards/tasks">
-                  <Button
-                    className={
-                      currentRoute === '/dashboards/tasks' ? 'active' : ''
-                    }
-                    disableRipple
-                    // onClick={() => router.push("/dashboards/tasks")}
-                    startIcon={<DashboardCustomizeIcon />}
-                    sx={{ display: userExists == true ? 'flex' : 'none' }}
-                  >
-                    Dashboard
-                  </Button>
-                </Link>
-              </ListItem>
-              <ListItem component="div">
-                <Link href="/PortfolioPage">
-                  <Button
-                    className={
-                      currentRoute === '/PortfolioPage' ? 'active' : ''
-                    }
-                    disableRipple
-                    // onClick={() => router.push("PortfolioPage")}
-                    startIcon={<SavingsIcon />}
-                    sx={{ display: userExists == true ? 'flex' : 'none' }}
-                  >
-                    Portfolio
-                  </Button>
-                </Link>
-              </ListItem>
-              <ListItem component="div">
-                <Link href="/FundPage">
-                  <Button
-                    className={currentRoute === '/FundPage' ? 'active' : ''}
-                    disableRipple
-                    // onClick={() => router.push("FundPage")}
-                    startIcon={<AddCircleOutlineIcon />}
-                    sx={{ display: userExists == true ? 'flex' : 'none' }}
-                  >
-                    Add Fund
-                  </Button>
-                </Link>
-              </ListItem>
-              <ListItem component="div">
-                <Link href="/WithDrawPage">
-                  <Button
-                    className={currentRoute === '/WithDrawPage' ? 'active' : ''}
-                    disableRipple
-                    // onClick={() => router.push("WithDrawPage")}
-                    startIcon={<RemoveCircleOutlineIcon />}
-                    sx={{ display: userExists == true ? 'flex' : 'none' }}
-                  >
-                    WithDraw
-                  </Button>
-                </Link>
-              </ListItem>
-              <ListItem component="div">
-                <Link href="/management/transactions">
-                  <Button
-                    className={
-                      currentRoute === '/management/transactions'
-                        ? 'active'
-                        : ''
-                    }
-                    disableRipple
-                    // onClick={() => router.push("management/transactions")}
-                    startIcon={<TableChartTwoToneIcon />}
-                    sx={{ display: userExists == true ? 'flex' : 'none' }}
-                  >
-                    Transactions
-                  </Button>
-                </Link>
-              </ListItem>
-              <ListItem component="div">
-                <Link href="/AssetsPage">
-                  <Button
-                    className={currentRoute === '/AssetsPage' ? 'active' : ''}
-                    disableRipple
-                    // onClick={() => router.push("AssetsPage")}
-                    startIcon={<StoreIcon />}
-                    sx={{ display: userExists == true ? 'flex' : 'none' }}
-                  >
-                    Show Assets
-                  </Button>
-                </Link>
-              </ListItem>
-              <ListItem component="div">
-                <Link href="/Basket">
-                  <Button
-                    className={currentRoute === '/Basket' ? 'active' : ''}
-                    disableRipple
-                    // onClick={() => router.push("Basket")}
-                    startIcon={<ShoppingBasketIcon />}
-                  >
-                    Basket
-                  </Button>
-                </Link>
-              </ListItem>
-              <ListItem component="div">
-                <Link href="/">
+          {
+            userExists == false
+            ? <List component="div">
+            <ListItem component="div">
+              <Link href="/LoginPage">
                 <Button
+                  className={currentRoute === '/LoginPage' ? 'active' : ''}
                   disableRipple
-                  startIcon={<LogoutIcon />}
-                  sx={{ display: userExists == true ? 'flex' : 'none' }}
-                  onClick={() => signOutHandler()}
+                  // onClick={() => router.push("LoginPage")}
+                  startIcon={<LoginIcon />}
+                  sx={{ display: userExists == false ? 'flex' : 'none' }}
                 >
-                  Sign Out
+                  Login
                 </Button>
-                </Link>
-              </ListItem>
-            </List>
-          
+              </Link>
+            </ListItem>
+            <ListItem component="div">
+              <Link href="/SignUpPage">
+                <Button
+                  className={currentRoute === '/SignUpPage' ? 'active' : ''}
+                  disableRipple
+                  // onClick={() => router.push("SignUpPage")}
+                  startIcon={<HowToRegIcon />}
+                  sx={{ display: userExists == false ? 'flex' : 'none' }}
+                >
+                  Sign Up
+                </Button>
+              </Link>
+            </ListItem>
+          </List>
+          :  <List component="div">
+          <ListItem component="div">
+            <Link href="/dashboards/tasks">
+              <Button
+                className={
+                  currentRoute === '/dashboards/tasks' ? 'active' : ''
+                }
+                disableRipple
+                // onClick={() => router.push("/dashboards/tasks")}
+                startIcon={<DashboardCustomizeIcon />}
+                sx={{ display: userExists == true ? 'flex' : 'none' }}
+              >
+                Dashboard
+              </Button>
+            </Link>
+          </ListItem>
+          <ListItem component="div">
+            <Link href="/PortfolioPage">
+              <Button
+                className={
+                  currentRoute === '/PortfolioPage' ? 'active' : ''
+                }
+                disableRipple
+                // onClick={() => router.push("PortfolioPage")}
+                startIcon={<SavingsIcon />}
+                sx={{ display: userExists == true ? 'flex' : 'none' }}
+              >
+                Portfolio
+              </Button>
+            </Link>
+          </ListItem>
+          <ListItem component="div">
+            <Link href="/FundPage">
+              <Button
+                className={currentRoute === '/FundPage' ? 'active' : ''}
+                disableRipple
+                // onClick={() => router.push("FundPage")}
+                startIcon={<AddCircleOutlineIcon />}
+                sx={{ display: userExists == true ? 'flex' : 'none' }}
+              >
+                Add Fund
+              </Button>
+            </Link>
+          </ListItem>
+          <ListItem component="div">
+            <Link href="/WithDrawPage">
+              <Button
+                className={currentRoute === '/WithDrawPage' ? 'active' : ''}
+                disableRipple
+                // onClick={() => router.push("WithDrawPage")}
+                startIcon={<RemoveCircleOutlineIcon />}
+                sx={{ display: userExists == true ? 'flex' : 'none' }}
+              >
+                WithDraw
+              </Button>
+            </Link>
+          </ListItem>
+          <ListItem component="div">
+            <Link href="/management/transactions">
+              <Button
+                className={
+                  currentRoute === '/management/transactions'
+                    ? 'active'
+                    : ''
+                }
+                disableRipple
+                // onClick={() => router.push("management/transactions")}
+                startIcon={<TableChartTwoToneIcon />}
+                sx={{ display: userExists == true ? 'flex' : 'none' }}
+              >
+                Transactions
+              </Button>
+            </Link>
+          </ListItem>
+          <ListItem component="div">
+            <Link href="/AssetsPage">
+              <Button
+                className={currentRoute === '/AssetsPage' ? 'active' : ''}
+                disableRipple
+                // onClick={() => router.push("AssetsPage")}
+                startIcon={<StoreIcon />}
+                sx={{ display: userExists == true ? 'flex' : 'none' }}
+              >
+                Show Assets
+              </Button>
+            </Link>
+          </ListItem>
+          <ListItem component="div">
+            <Link href="/Basket">
+              <Button
+                className={currentRoute === '/Basket' ? 'active' : ''}
+                disableRipple
+                // onClick={() => router.push("Basket")}
+                startIcon={<ShoppingBasketIcon />}
+              >
+                Basket
+              </Button>
+            </Link>
+          </ListItem>
+          <ListItem component="div">
+            <Link href="/">
+            <Button
+              disableRipple
+              startIcon={<LogoutIcon />}
+              sx={{ display: userExists == true ? 'flex' : 'none' }}
+              onClick={() => signOutHandler()}
+            >
+              Sign Out
+            </Button>
+            </Link>
+          </ListItem>
+        </List>
+          }
         </SubMenuWrapper>
       </MenuWrapper>
     </>

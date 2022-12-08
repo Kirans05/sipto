@@ -49,6 +49,8 @@ import {
 import Head from 'next/head';
 import React, { useState, useRef, useEffect } from 'react';
 import SidebarLayout from 'src/layouts/SidebarLayout';
+import Header from '../Component/Header/Header';
+import Sidebar from '../Component/Siderbar/Sidebar';
 
 const SingleBasket = () => {
   const Alert = React.forwardRef(function Alert(props, ref) {
@@ -376,7 +378,11 @@ const SingleBasket = () => {
       <Head>
         <title>SingleBasket</title>
       </Head>
-      <Box className={Styles.mainBox}>
+      <Box className={Styles.simpleMainBox}>
+      <Sidebar />
+      <Box className={Styles.headerAndMainCompo}>
+        <Header />
+        <Box className={Styles.mainBox}>
         <Box className={Styles.basketBreifInfo}>
           <Box
             component={'img'}
@@ -763,10 +769,13 @@ const SingleBasket = () => {
           </Alert>
         </Snackbar>
       </Box>
+      </Box>
+    </Box>
+      
     </>
   );
 };
 
-SingleBasket.getLayout = (page) => <SidebarLayout>{page}</SidebarLayout>;
+// SingleBasket.getLayout = (page) => <SidebarLayout>{page}</SidebarLayout>;
 
 export default SingleBasket;

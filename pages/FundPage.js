@@ -26,6 +26,8 @@ import AddCircleOutlineIcon from '@mui/icons-material/AddCircleOutline';
 import MuiAlert from "@mui/material/Alert";
 import {useRouter} from "next/router"
 import supabase from '../src/Config/supabaseClient';
+import Header from '../Component/Header/Header';
+import Sidebar from '../Component/Siderbar/Sidebar';
 
 
 const FundPage = () => {
@@ -123,7 +125,11 @@ const FundPage = () => {
       <Head>
         <title>FundPage</title>
       </Head>
-      <Box className={Styles.fundPageBox}>
+      <Box className={Styles.simpleMainBox}>
+      <Sidebar />
+      <Box className={Styles.headerAndMainCompo}>
+        <Header />
+        <Box className={Styles.fundPageBox}>
         <Typography className={Styles.title}>Add Fund</Typography>
         <TextField
         className={Styles.inputFeilds}
@@ -174,10 +180,13 @@ const FundPage = () => {
         </Alert>
       </Snackbar>
       </Box>
+      </Box>
+    </Box>
+      
     </>
   );
 };
 
-FundPage.getLayout = (page) => <SidebarLayout>{page}</SidebarLayout>;
+// FundPage.getLayout = (page) => <SidebarLayout>{page}</SidebarLayout>;
 
 export default FundPage;

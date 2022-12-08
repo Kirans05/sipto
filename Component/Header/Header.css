@@ -1,0 +1,70 @@
+.HeaderMainBox{
+    width: 100%;
+    background-color: rgb(24,30,56);
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-end;
+    padding: 0% 2% 0% 0%;
+    height: 13vh;
+    border-bottom: 4px solid rgb(38,43,71);
+    position: sticky;
+    top: 0px;
+    right: 0px;
+    left: 22%;
+    z-index: 3;
+}
+
+.HeaderMainBox .toggleButton{
+    display: none;
+}
+
+.headerToggleBox{
+    display: flex;
+    flex-direction: column;
+    background-color: rgb(24,30,56);
+    border-right: 4px solid rgb(38,43,71);
+    width: 100%;
+}
+
+
+.headerToggleBox .notActive{
+    color: rgb(174,176,186);
+}
+.headerToggleBox .active{
+    color: white;
+}
+.headerToggleBox .notActive:hover{
+    color: white;
+    background-color: rgb(37,43,67)
+}
+.headerToggleBox .active:hover{
+    color: white;
+    background-color: rgb(37,43,67)
+}
+
+.headerToggleBox .listItem:hover{
+    background-color: rgb(37,43,67);
+    border-radius: 10px;
+}
+
+.listItem .signoutBtn{
+    color: rgb(174,176,186);
+}
+
+.listItem .signoutBtn:hover{
+    color: white;
+    background-color: rgb(37,43,67);
+}
+
+.headerToggleBox .AppName{
+    padding-left: 50px;
+    font-size: 20px;
+    margin-top: 20px;
+}
+
+@media (min-width:0px) and (max-width:1260px) {
+    .HeaderMainBox .toggleButton{
+        display: inline;
+    }
+}

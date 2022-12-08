@@ -33,6 +33,8 @@ import { useRouter } from 'next/router';
 import axios from 'axios';
 import supabase from '../../src/Config/supabaseClient';
 import MuiAlert from "@mui/material/Alert";
+import Header from '../../Component/Header/Header';
+import Sidebar from '../../Component/Siderbar/Sidebar';
 
 
 
@@ -269,7 +271,11 @@ const AssetsPage = () => {
       <Head>
         <title>AssetsPage</title>
       </Head>
-      <Box className={Styles.SingleAssetDetailsMainPage}>
+      <Box className={Styles.simpleMainBox}>
+      <Sidebar />
+      <Box className={Styles.headerAndMainCompo}>
+        <Header />
+        <Box className={Styles.SingleAssetDetailsMainPage}>
         <Typography className={Styles.coindId}>{coinId}</Typography>
         <Box className={Styles.buttonGroup}>
           <button
@@ -462,10 +468,13 @@ const AssetsPage = () => {
           </Box>
         )}
       </Box>
+      </Box>
+    </Box>
+      
     </>
   );
 };
 
-AssetsPage.getLayout = (page) => <SidebarLayout>{page}</SidebarLayout>;
+// AssetsPage.getLayout = (page) => <SidebarLayout>{page}</SidebarLayout>;
 
 export default AssetsPage;

@@ -9,6 +9,10 @@ import createEmotionCache from 'src/createEmotionCache';
 import { SidebarProvider } from 'src/contexts/SidebarContext';
 import AdapterDateFns from '@mui/lab/AdapterDateFns';
 import LocalizationProvider from '@mui/lab/LocalizationProvider';
+import "../Component/Header/Header.css"
+import "../Component/Siderbar/Sidebar.css"
+// import "../Styles/Simple.module.css"
+
 
 const clientSideEmotionCache = createEmotionCache();
 

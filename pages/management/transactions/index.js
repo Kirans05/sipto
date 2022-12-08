@@ -2,8 +2,11 @@ import Head from 'next/head';
 import SidebarLayout from 'src/layouts/SidebarLayout';
 import PageHeader from 'src/content/Management/Transactions/PageHeader';
 import PageTitleWrapper from 'src/components/PageTitleWrapper';
-import { Grid, Container } from '@mui/material';
+import { Grid, Container, Box } from '@mui/material';
 import Footer from 'src/components/Footer';
+import Header from '../../../Component/Header/Header';
+import Sidebar from '../../../Component/Siderbar/Sidebar';
+import Styles from "../../../Styles/Transaction.module.css"
 
 import RecentOrders from 'src/content/Management/Transactions/RecentOrders';
 
@@ -13,10 +16,11 @@ function ApplicationsTransactions() {
       <Head>
         <title>Transactions - Applications</title>
       </Head>
-      <PageTitleWrapper>
-        <PageHeader />
-      </PageTitleWrapper>
-      <Container maxWidth="lg">
+      <Box className={Styles.simpleMainBox}>
+      <Sidebar />
+      <Box className={Styles.headerAndMainCompo}>
+        <Header />
+        <Container maxWidth="lg">
         <Grid
           container
           direction="row"
@@ -29,12 +33,15 @@ function ApplicationsTransactions() {
           </Grid>
         </Grid>
       </Container>
+      </Box>
+    </Box>
+      
     </>
   );
 }
 
-ApplicationsTransactions.getLayout = (page) => (
-  <SidebarLayout>{page}</SidebarLayout>
-);
+// ApplicationsTransactions.getLayout = (page) => (
+//   <SidebarLayout>{page}</SidebarLayout>
+// );
 
 export default ApplicationsTransactions;

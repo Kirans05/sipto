@@ -1,3 +1,4 @@
+import Head from "next/head"
 import {
   Box,
   Button,
@@ -16,6 +17,8 @@ import supabase from '../src/Config/supabaseClient';
 import PortfolioCard from '../src/components/PortfolioCard/PortfolioCard';
 import { useRouter } from 'next/router';
 import SidebarLayout from 'src/layouts/SidebarLayout';
+import Header from '../Component/Header/Header';
+import Sidebar from '../Component/Siderbar/Sidebar';
 
 const Portfolio = () => {
   const router = useRouter();
@@ -41,7 +44,15 @@ const Portfolio = () => {
   }, []);
 
   return (
-    <Box className={Styles.portfolioMainBox}>
+    <>
+    <Head>
+      <title>Portfolio</title>
+    </Head>
+    <Box className={Styles.simpleMainBox}>
+      <Sidebar />
+      <Box className={Styles.headerAndMainCompo}>
+        <Header />
+        <Box className={Styles.portfolioMainBox}>
       {positionsArr.map((item, index) => {
         return (
           <PortfolioCard
@@ -53,9 +64,12 @@ const Portfolio = () => {
         );
       })}
     </Box>
+      </Box>
+    </Box>
+    </>
   );
 };
 
-Portfolio.getLayout = (page) => <SidebarLayout>{page}</SidebarLayout>;
+// Portfolio.getLayout = (page) => <SidebarLayout>{page}</SidebarLayout>;
 
 export default Portfolio;

@@ -1,3 +1,18 @@
+.simpleMainBox{
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+}
+
+.simpleMainBox .headerAndMainCompo{
+    width: 80%;
+    display: flex;
+    flex-direction: column;
+    row-gap: 20px;
+}
+
+
+
 .portfolioMainBox {
     display: flex;
     flex-direction: column;
@@ -63,81 +78,91 @@
 
   
 @media (min-width:0px) and (max-width:480px){
-    .PortfolioTable {
-      width: 96%;
-      margin-left: 2%;
-      margin-right: 2%;
-      box-shadow: rgba(17, 17, 26, 0.1) 0px 0px 16px;
+        .PortfolioTable {
+        width: 96%;
+        margin-left: 2%;
+        margin-right: 2%;
+        box-shadow: rgba(17, 17, 26, 0.1) 0px 0px 16px;
+        }
+
+        .backButton{
+            margin-left: 10px;
+        }
+
+    .portfolioMainBox .portfolioCardMainBox{
+        width: 96%;
+        padding: 1% 2%;
     }
 
-    .backButton{
-        margin-left: 10px;
+
+
+    .portfolioCardLeftPart .coindId {
+        font-size: 14px;
     }
 
-.portfolioMainBox .portfolioCardMainBox{
-    width: 96%;
-    padding: 1% 2%;
-}
+    .portfolioCardLeftPart .units{
+        font-size: 12px;
+    }
 
+    .portfolioCardRightPart .totalPrice {
+        font-size: 14px;
+    }
 
+    .portfolioCardRightPart .purchaseDate{
+        font-size: 12px;
+    }
 
-.portfolioCardLeftPart .coindId {
-    font-size: 14px;
-}
+    .divider {
+        width: 96%;
+    }
 
-.portfolioCardLeftPart .units{
-    font-size: 12px;
-}
-
-.portfolioCardRightPart .totalPrice {
-    font-size: 14px;
-}
-
-.portfolioCardRightPart .purchaseDate{
-    font-size: 12px;
-}
-
-.divider {
-    width: 96%;
-}
+    .simpleMainBox .headerAndMainCompo{
+        width: 100%;
+    }
 }
 
 @media (min-width:481px) and (max-width:768px){
-  .PortfolioTable {
-    width: 96%;
-      margin-right: 2%;
-      margin-left: 2%;
-  }
+    .PortfolioTable {
+        width: 96%;
+        margin-right: 2%;
+        margin-left: 2%;
+    }
 
-  .backButton{
-    margin-left: 15px;
-}
-.portfolioMainBox .portfolioCardMainBox{
-    width: 70%;
-    padding: 1% 2%;
+    .backButton{
+        margin-left: 15px;
+    }
+    .portfolioMainBox .portfolioCardMainBox{
+        width: 70%;
+        padding: 1% 2%;
+    }
+
+    .portfolioCardLeftPart .coindId {
+        font-size: 15px;
+    }
+
+    .portfolioCardLeftPart .units{
+        font-size: 13px;
+    }
+
+    .portfolioCardRightPart .totalPrice {
+        font-size: 15px;
+    }
+
+    .portfolioCardRightPart .purchaseDate{
+        font-size: 13px;
+    }
+
+    .divider {
+        width: 70%;
+    }
+
+    .simpleMainBox .headerAndMainCompo{
+        width: 100%;
+    }
 }
 
-.portfolioCardLeftPart .coindId {
-    font-size: 15px;
-}
-
-.portfolioCardLeftPart .units{
-    font-size: 13px;
-}
-
-.portfolioCardRightPart .totalPrice {
-    font-size: 15px;
-}
-
-.portfolioCardRightPart .purchaseDate{
-    font-size: 13px;
-}
-
-.divider {
-    width: 70%;
-}
-}
-
-@media (min-width:769px) {
-
+@media (min-width:769px)  and (max-width:1260px) {
+    .simpleMainBox .headerAndMainCompo{
+        width: 100%;
+    }
 }

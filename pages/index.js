@@ -93,7 +93,6 @@
 //   return <BaseLayout>{page}</BaseLayout>;
 // };
 
-
 import Head from 'next/head';
 import SidebarLayout from 'src/layouts/SidebarLayout';
 import { useState } from 'react';
@@ -120,6 +119,9 @@ import Projects from 'src/content/Dashboards/Tasks/Projects';
 import Checklist from 'src/content/Dashboards/Tasks/Checklist';
 import Profile from 'src/content/Dashboards/Tasks/Profile';
 import TaskSearch from 'src/content/Dashboards/Tasks/TaskSearch';
+import Styles from "../Styles/Index.module.css"
+import Header from '../Component/Header/Header';
+import Sidebar from '../Component/Siderbar/Sidebar';
 
 const TabsContainerWrapper = styled(Box)(
   ({ theme }) => `
@@ -318,14 +320,27 @@ function DashboardTasks() {
         </Card>
       </Container>
       <Footer /> */}
-      <Box sx={{width:"100%", height:"30vh", display:"flex", alignItems:"center", justifyContent:"center"}}>
-        <Typography variant='h2'>Welcome User</Typography>
+      <Box className={Styles.simpleMainBox}>
+        <Sidebar />
+        <Box className={Styles.headerAndMainCompo}>
+          <Header />
+          <Box
+            sx={{
+              width: '100%',
+              height: '30vh',
+              display: 'flex',
+              alignItems: 'center',
+              justifyContent: 'center'
+            }}
+          >
+            <Typography variant="h2">Welcome User</Typography>
+          </Box>
+        </Box>
       </Box>
     </>
   );
 }
 
-
-DashboardTasks.getLayout = (page) => <SidebarLayout>{page}</SidebarLayout>;
+// DashboardTasks.getLayout = (page) => <SidebarLayout userExists={true}>{page}</SidebarLayout>;
 
 export default DashboardTasks;

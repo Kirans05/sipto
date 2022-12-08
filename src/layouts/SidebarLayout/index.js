@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 import Sidebar from './Sidebar';
 import Header from './Header';
 
-const SidebarLayout = ({ children }) => {
+const SidebarLayout = (props) => {
   const theme = useTheme();
 
   return (
@@ -36,7 +36,7 @@ const SidebarLayout = ({ children }) => {
         }}
       >
         <Header />
-        <Sidebar />
+        <Sidebar userExists={props.userExists}/>
         <Box
           sx={{
             position: 'relative',
@@ -49,7 +49,7 @@ const SidebarLayout = ({ children }) => {
             },
           }}
         >
-          <Box display="block">{children}</Box>
+          <Box display="block">{props.children}</Box>
         </Box>
       </Box>
     </>

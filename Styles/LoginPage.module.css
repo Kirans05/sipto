@@ -1,3 +1,17 @@
+.simpleMainBox{
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+}
+
+.simpleMainBox .headerAndMainCompo{
+    width: 80%;
+    display: flex;
+    flex-direction: column;
+    row-gap: 20px;
+}
+
+
 .loginPageBox{
     display: flex;
     flex-direction: column;
@@ -67,6 +81,10 @@
     .loginPageBox .errorMsg{
         font-size: 12px;
     }
+
+    .simpleMainBox .headerAndMainCompo{
+        width: 100%;
+    }
 }
 
 @media (min-width:481px) and (max-width:768px){
@@ -97,8 +115,14 @@
     .loginPageBox .errorMsg{
         font-size: 15px;
     }
+
+    .simpleMainBox .headerAndMainCompo{
+        width: 100%;
+    }
 }
 
-@media (min-width:769px) {
-   
-} 
+@media (min-width:769px)  and (max-width:1260px) {
+    .simpleMainBox .headerAndMainCompo{
+        width: 100%;
+    }
+}

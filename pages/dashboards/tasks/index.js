@@ -27,7 +27,10 @@ import Profile from 'src/content/Dashboards/Tasks/Profile';
 import TaskSearch from 'src/content/Dashboards/Tasks/TaskSearch';
 import Styles from '../../../Styles/Dashboard.module.css';
 import supabase from '../../../src/Config/supabaseClient';
-import axios from "axios"
+import axios from 'axios';
+import Header from '../../../Component/Header/Header';
+import Sidebar from '../../../Component/Siderbar/Sidebar';
+import Link from 'next/link';
 
 const TabsContainerWrapper = styled(Box)(
   ({ theme }) => `
@@ -112,45 +115,43 @@ const TabsContainerWrapper = styled(Box)(
 );
 
 function DashboardTasks() {
-
-  const [userDetails, setUserDetails] = useState("");
+  const [userDetails, setUserDetails] = useState('');
   const [rerender, setRerender] = useState(true);
 
   const fetchUserDetails = async (user) => {
     let response = await supabase
-      .from("profiles")
-      .select("*")
-      .eq("id", user.id)
+      .from('profiles')
+      .select('*')
+      .eq('id', user.id)
       .single();
 
     let { data } = response;
-    localStorage.setItem("userData", JSON.stringify(data));
+    localStorage.setItem('userData', JSON.stringify(data));
     setUserDetails(data);
   };
 
-
   const kycVerification = async () => {
     let getDetails = {
-      url: "https://637cac1f16c1b892ebbb6fe6.mockapi.io/userData",
-      method: "GET",
+      url: 'https://637cac1f16c1b892ebbb6fe6.mockapi.io/userData',
+      method: 'GET'
     };
     let response = await axios(getDetails);
     let { data } = response;
     let filterItem = data.filter((item) => item.userKycId == userDetails.id);
     if (filterItem.length == 0) {
       let postDetails = {
-        url: "https://637cac1f16c1b892ebbb6fe6.mockapi.io/userData",
-        method: "POST",
+        url: 'https://637cac1f16c1b892ebbb6fe6.mockapi.io/userData',
+        method: 'POST',
         data: {
-          userKycId: userDetails.id,
-        },
+          userKycId: userDetails.id
+        }
       };
       let postResponse = await axios(postDetails);
-      if (postResponse.statusText == "Created") {
+      if (postResponse.statusText == 'Created') {
         let supabaseResponse = await supabase
-          .from("profiles")
+          .from('profiles')
           .update([{ kyc_verified: true }])
-          .eq("id", userDetails.id);
+          .eq('id', userDetails.id);
         if (supabaseResponse.status == 204) {
           setRerender(!rerender);
         }
@@ -160,7 +161,7 @@ function DashboardTasks() {
 
   useEffect(() => {
     const { user } = JSON.parse(
-      localStorage.getItem("sb-ziaxsvytbaahgjrompdd-auth-token")
+      localStorage.getItem('sb-ziaxsvytbaahgjrompdd-auth-token')
     );
     fetchUserDetails(user);
   }, [rerender]);
@@ -170,57 +171,76 @@ function DashboardTasks() {
       <Head>
         <title>Tasks Dashboard</title>
       </Head>
-      <PageTitleWrapper>
-        <PageHeader />
-      </PageTitleWrapper>
-      {userDetails == "" ? null : (
-          <Alert
-            severity="warning"
-            sx={{
-              display: userDetails.kyc_verified == false ? "flex" : "none",
-            }}
-            onClick={kycVerification}
-            className={Styles.alertMessage}
-          >
-            KYC not verified &nbsp;{" "}
-            <span className={Styles.kycVerificationButton}>Verify Now!</span>
-          </Alert>
-        )}
-      {userDetails == "" ? (
-          <Skeleton
-            variant="rectangular"
-            width={400}
-            height={120}
-            style={{ borderRadius: "20px",marginLeft:"4%" }}
-          />
-        ) : (
-      <Box className={Styles.dashboardMainBox}>
-        <Box className={Styles.portfolioBox}>
-          <Typography className={Styles.portfolioTitle}>Your PortFolio</Typography>
-          <Typography className={Styles.portfolioAmount}>$ {userDetails.wallet_balance}</Typography>
-          <button className={Styles.portfolionBtn}>View Portfolio</button>
-          <Box className={Styles.portfolioBackgroundCircle1}></Box>
-          <Box className={Styles.portfolioBackgroundCircle2}></Box>
-        </Box>
-        <Box className={Styles.totalOrderBox}>
-          <Typography className={Styles.fundTitle}>Funds Available</Typography>
-          <Typography className={Styles.fundAmount}>$ {userDetails.wallet_balance}</Typography>
-          <Box className={Styles.fund_withdrawBtn}>
-            <button className={Styles.addFundBtn}>Add Fund</button>
-            <button className={Styles.withdrawBtn}>Withdraw</button>
-          </Box>
-          <Box className={Styles.totalOrderBackgroundCircle1}></Box>
-          <Box className={Styles.totalOrderBackgroundCircle2}></Box>
-        </Box>
-        <Box className={Styles.TasksAnalytics}>
-          <TasksAnalytics />
+      <Box className={Styles.simpleMainBox}>
+        <Sidebar />
+        <Box className={Styles.headerAndMainCompo}>
+          <Header />
+          {userDetails == '' ? null : (
+            <Alert
+              severity="warning"
+              sx={{
+                display: userDetails.kyc_verified == false ? 'flex' : 'none'
+              }}
+              onClick={kycVerification}
+              className={Styles.alertMessage}
+            >
+              KYC not verified &nbsp;{' '}
+              <span className={Styles.kycVerificationButton}>Verify Now!</span>
+            </Alert>
+          )}
+          {userDetails == '' ? (
+            <Skeleton
+              variant="rectangular"
+              width={400}
+              height={120}
+              style={{ borderRadius: '20px', marginLeft: '4%' }}
+            />
+          ) : (
+            <Box className={Styles.dashboardMainBox}>
+              <Box className={Styles.portfolioBox}>
+                <Typography className={Styles.portfolioTitle}>
+                  Your PortFolio
+                </Typography>
+                <Typography className={Styles.portfolioAmount}>
+                  $ {userDetails.wallet_balance}
+                </Typography>
+                <Link href="/PortfolioPage">
+                  <button className={Styles.portfolionBtn}>
+                    View Portfolio
+                  </button>
+                </Link>
+                <Box className={Styles.portfolioBackgroundCircle1}></Box>
+                <Box className={Styles.portfolioBackgroundCircle2}></Box>
+              </Box>
+              <Box className={Styles.totalOrderBox}>
+                <Typography className={Styles.fundTitle}>
+                  Funds Available
+                </Typography>
+                <Typography className={Styles.fundAmount}>
+                  $ {userDetails.wallet_balance}
+                </Typography>
+                <Box className={Styles.fund_withdrawBtn}>
+                  <Link href="/FundPage">
+                    <button className={Styles.addFundBtn}>Add Fund</button>
+                  </Link>
+                  <Link href="/WithDrawPage">
+                    <button className={Styles.withdrawBtn}>Withdraw</button>
+                  </Link>
+                </Box>
+                <Box className={Styles.totalOrderBackgroundCircle1}></Box>
+                <Box className={Styles.totalOrderBackgroundCircle2}></Box>
+              </Box>
+              <Box className={Styles.TasksAnalytics}>
+                <TasksAnalytics />
+              </Box>
+            </Box>
+          )}
         </Box>
       </Box>
-        )}
     </>
   );
 }
 
-DashboardTasks.getLayout = (page) => <SidebarLayout userExist={true}>{page}</SidebarLayout>;
+// DashboardTasks.getLayout = (page) => <SidebarLayout userExist={true}>{page}</SidebarLayout>;
 
 export default DashboardTasks;

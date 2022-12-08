@@ -25,6 +25,8 @@ import MessageIcon from '@mui/icons-material/Message';
 import AddCircleOutlineIcon from '@mui/icons-material/AddCircleOutline';
 import RemoveCircleOutlineIcon from '@mui/icons-material/RemoveCircleOutline';
 import CoinCard from "../src/components/CoinCard/CoinCard"
+import Header from '../Component/Header/Header';
+import Sidebar from '../Component/Siderbar/Sidebar';
 
 const AssetsPage = () => {
 
@@ -50,7 +52,11 @@ const AssetsPage = () => {
       <Head>
         <title>AssetsPage</title>
       </Head>
-      <Box className={Styles.AssetsPageBox}>
+      <Box className={Styles.simpleMainBox}>
+      <Sidebar />
+      <Box className={Styles.headerAndMainCompo}>
+        <Header />
+        <Box className={Styles.AssetsPageBox}>
         {coinData.length == 0 ? (
           <Box className={Styles.coinPageSkeleton}>
             <Skeleton variant="rounded" className={Styles.skeleton} />
@@ -76,11 +82,14 @@ const AssetsPage = () => {
           </Box>
         )}
       </Box>
+      </Box>
+    </Box>
+      
 
     </>
   );
 };
 
-AssetsPage.getLayout = (page) => <SidebarLayout>{page}</SidebarLayout>;
+// AssetsPage.getLayout = (page) => <SidebarLayout>{page}</SidebarLayout>;
 
 export default AssetsPage;

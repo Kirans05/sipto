@@ -30,7 +30,7 @@ const SidebarWrapper = styled(Box)(
 `
 );
 
-function Sidebar() {
+function Sidebar({userExists}) {
   const { sidebarToggle, toggleSidebar } = useContext(SidebarContext);
   const closeSidebar = () => toggleSidebar();
   const theme = useTheme();
@@ -72,7 +72,7 @@ function Sidebar() {
               background: theme.colors.alpha.trueWhite[10]
             }}
           />
-          <SidebarMenu />
+          <SidebarMenu user={userExists}/>
         </Scrollbar>
         <Divider
           sx={{
@@ -103,10 +103,10 @@ function Sidebar() {
               <Box
                 mx={2}
                 sx={{
-                  width: 52
+                  width: "100%"
                 }}
               >
-                <Logo />
+                <Typography>Investment App</Typography>
               </Box>
             </Box>
             <Divider

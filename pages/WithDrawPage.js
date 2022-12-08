@@ -27,6 +27,8 @@ import RemoveCircleOutlineIcon from '@mui/icons-material/RemoveCircleOutline';
 import {useRouter} from "next/router"
 import supabase from "../src/Config/supabaseClient"
 import MuiAlert from "@mui/material/Alert";
+import Header from '../Component/Header/Header';
+import Sidebar from '../Component/Siderbar/Sidebar';
 
 
 const WithDrawPage = () => {
@@ -114,7 +116,11 @@ const WithDrawPage = () => {
       <Head>
         <title>WithDraw</title>
       </Head>
-      <Box className={Styles.withDrawPageBox}>
+      <Box className={Styles.simpleMainBox}>
+      <Sidebar />
+      <Box className={Styles.headerAndMainCompo}>
+        <Header />
+        <Box className={Styles.withDrawPageBox}>
         <Typography className={Styles.title}>WithDraw</Typography>
         <TextField
         className={Styles.inputFeild}
@@ -134,6 +140,9 @@ const WithDrawPage = () => {
         />
         <button className={Styles.withDrawPageBtn} onClick={submitHandler}><RemoveCircleOutlineIcon /> WithDraw</button>
       </Box>
+      </Box>
+    </Box>
+      
       <Snackbar
         open={snackBarOpen}
         autoHideDuration={6000}
@@ -151,6 +160,6 @@ const WithDrawPage = () => {
   );
 };
 
-WithDrawPage.getLayout = (page) => <SidebarLayout>{page}</SidebarLayout>;
+// WithDrawPage.getLayout = (page) => <SidebarLayout>{page}</SidebarLayout>;
 
 export default WithDrawPage;

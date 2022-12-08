@@ -22,6 +22,8 @@ import MailOutlineIcon from '@mui/icons-material/MailOutline';
 import Styles from "../Styles/LoginPage.module.css"
 import supabase from '../src/Config/supabaseClient';
 import {useRouter} from "next/router"
+import Header from '../Component/Header/Header';
+import Sidebar from '../Component/Siderbar/Sidebar';
 
 const LoginPage = () => {
 
@@ -82,7 +84,11 @@ const LoginPage = () => {
       <Head>
         <title>LoginPage</title>
       </Head>
-      <Box className={Styles.loginPageBox}>
+    <Box className={Styles.simpleMainBox}>
+      <Sidebar />
+      <Box className={Styles.headerAndMainCompo}>
+        <Header />
+        <Box className={Styles.loginPageBox}>
         <Typography className={Styles.welcomeBack}>Hi, Welcome Back</Typography>
         <Typography className={Styles.credentials}>Enter your credentials to continue</Typography>
         <TextField
@@ -144,10 +150,13 @@ const LoginPage = () => {
         </button>
         <Typography className={Styles.errorMsg}>{errorMsg}</Typography>
       </Box>
+      </Box>
+    </Box>
+      
     </>
   );
 };
 
-LoginPage.getLayout = (page) => <SidebarLayout>{page}</SidebarLayout>;
+// LoginPage.getLayout = (page) => <SidebarLayout>{page}</SidebarLayout>;
 
 export default LoginPage;
