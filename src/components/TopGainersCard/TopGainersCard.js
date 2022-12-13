@@ -20,6 +20,7 @@ const TopGainersCard = ({ Styles, item }) => {
                 if(index < 4){
                   let topGainersCardImages = `topGainersCardImages${index+1}`
                   return <Box
+                  key={index}
               component={'img'}
               className={Styles.topGainersCardImages}
               src={image.crypto.image.thumb}

@@ -485,6 +485,7 @@ const SingleBasket = () => {
                     if (index < 4) {
                       return (
                         <Box
+                        key={index}
                           component={'img'}
                           className={Styles.basketAssestsImage}
                           src={item.crypto.image.thumb}
