@@ -153,12 +153,15 @@ function RecentOrders() {
   // }
 
   useEffect(() => {
+    const { user } = JSON.parse(
+      localStorage.getItem('sb-ziaxsvytbaahgjrompdd-auth-token')
+    );
     const fetchTransactionList = async () => {
       try {
         let TransctionResponse = await supabase
           .from('transaction_table')
           .select('*')
-          .eq('id', '17a8937e-ec5f-41bc-a1e2-f18e9dd7a664');
+          .eq('id', user.id);
 
         setTransactionDetails(TransctionResponse.data)
         console.log(TransctionResponse.data)
