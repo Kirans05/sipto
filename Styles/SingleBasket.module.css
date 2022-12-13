@@ -39,8 +39,8 @@
 
 .basketBreifInfo .basketlogo{
     width: 15%;
-    height: 25%;
-    border-radius: 30%;
+    height: 35%;
+    /* border-radius: 30%; */
 }
 
 .basketBreifInfo .basketFirstpart {
@@ -91,10 +91,11 @@
 
 .basketBreifInfo .basketThirdpart {
     display: flex;
-    width: 120px;
+    width: 100px;
     flex-wrap: wrap;
     align-items: center;
     justify-content: center;
+    /* border: 2px solid red; */
 }
 
 

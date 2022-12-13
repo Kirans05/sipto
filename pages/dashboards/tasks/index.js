@@ -31,6 +31,11 @@ import axios from 'axios';
 import Header from '../../../Component/Header/Header';
 import Sidebar from '../../../Component/Siderbar/Sidebar';
 import Link from 'next/link';
+import ChangeHistoryIcon from '@mui/icons-material/ChangeHistory';
+import EjectIcon from '@mui/icons-material/Eject';
+import TrendingBasketCard from '../../../src/components/TrendingBasketCard/TrendingBasketCard';
+import TopGainersCard from '../../../src/components/TopGainersCard/TopGainersCard';
+import HighestReturnCard from '../../../src/components/HighestReturnCard/HighestReturnCard';
 
 const TabsContainerWrapper = styled(Box)(
   ({ theme }) => `
@@ -117,6 +122,7 @@ const TabsContainerWrapper = styled(Box)(
 function DashboardTasks() {
   const [userDetails, setUserDetails] = useState('');
   const [rerender, setRerender] = useState(true);
+  const [basketData, setBasketData] = useState([]);
 
   const fetchUserDetails = async (user) => {
     let response = await supabase
@@ -159,11 +165,26 @@ function DashboardTasks() {
     }
   };
 
+  const fetchAllBaskets = async () => {
+    try {
+      let resp = await supabase.from('bakset_Table').select('*');
+      console.log(resp);
+      if (resp.error) {
+        return;
+      }
+
+      if (resp.data) {
+        setBasketData(resp.data);
+      }
+    } catch (err) {}
+  };
+
   useEffect(() => {
     const { user } = JSON.parse(
       localStorage.getItem('sb-ziaxsvytbaahgjrompdd-auth-token')
     );
     fetchUserDetails(user);
+    fetchAllBaskets();
   }, [rerender]);
 
   return (
@@ -232,6 +253,172 @@ function DashboardTasks() {
               </Box>
               <Box className={Styles.TasksAnalytics}>
                 <TasksAnalytics />
+              </Box>
+              <Box className={Styles.DashboardWelcomeCard}>
+                <Box className={Styles.DashboardWelcomeCardFirstPart}>
+                  <Typography className={Styles.typographyTitle}>
+                    Welcome <span className={Styles.userName}>User</span>
+                  </Typography>
+                  <Typography
+                    className={Styles.yourInvestment}
+                    sx={{ fontWeight: '800' }}
+                  >
+                    Your Investment
+                  </Typography>
+                </Box>
+                <Box className={Styles.DashboardWelcomeCardSecondPart}>
+                  <Typography className={Styles.typographyTitle}>
+                    Basket
+                  </Typography>
+                  <Typography
+                    className={Styles.typographyTitle}
+                    sx={{ fontWeight: '800' }}
+                  >
+                    0
+                  </Typography>
+                </Box>
+                <Box className={Styles.DashboardWelcomeCardThirdPart}>
+                  <Typography className={Styles.typographyTitle}>
+                    Current Value
+                  </Typography>
+                  <Typography
+                    className={Styles.typographyTitle}
+                    sx={{ color: 'rgb(175,49,67)', fontWeight: '800' }}
+                  >
+                    $ 0.00
+                  </Typography>
+                </Box>
+                <Box className={Styles.DashboardWelcomeCardFourthPart}>
+                  <Typography className={Styles.typographyTitle}>
+                    Invested Value
+                  </Typography>
+                  <Typography
+                    className={Styles.typographyTitle}
+                    sx={{ fontWeight: '800' }}
+                  >
+                    $ 0.00
+                  </Typography>
+                </Box>
+              </Box>
+
+              <Box className={Styles.trendingBasketBox}>
+                <Box sx={{display:"flex", justifyContent:"space-between"}}>
+                  <Typography className={Styles.trendingBasketTitle}>
+                    New Baskets
+                  </Typography>
+                  <Link href={"/Explore"}>
+                    <button className={Styles.viewMoreButton}>View More</button>
+                  </Link>
+                </Box>
+                <Box className={Styles.trendingBasketCard}>
+                  {basketData.length == 0
+                    ? null
+                    : basketData.map((item, index) => {
+                        if (
+                          item.name == 'BNB Chain Ecosystem Basket' ||
+                          item.name == 'Blue-Chip Crypto Basket'
+                        ) {
+                          return (
+                            <TrendingBasketCard
+                              key={index}
+                              Styles={Styles}
+                              item={item}
+                            />
+                          );
+                        }
+                      })}
+                </Box>
+              </Box>
+              <Box className={Styles.trendingBasketBox}>
+              <Box sx={{display:"flex", justifyContent:"space-between"}}>
+                  <Typography className={Styles.trendingBasketTitle}>
+                    Trending Baskets
+                  </Typography>
+                  <Link href={"/Explore"}>
+                    <button className={Styles.viewMoreButton}>View More</button>
+                  </Link>
+                </Box>
+                <Box className={Styles.trendingBasketCard}>
+                  {basketData.length == 0
+                    ? null
+                    : basketData.map((item, index) => {
+                        if (
+                          item.name == 'All Crypto Basket' ||
+                          item.name == 'DeFi Basket'
+                        ) {
+                          return (
+                            <TrendingBasketCard
+                              key={index}
+                              Styles={Styles}
+                              item={item}
+                            />
+                          );
+                        }
+                      })}
+                </Box>
+              </Box>
+              <Box className={Styles.TopGainersBox}>
+                <Box sx={{display:"flex", justifyContent:"space-between"}}>
+                  <Typography className={Styles.topGainersTitle}>
+                  Top Gainers
+                  </Typography>
+                  <Link href={"/Explore"}>
+                    <button className={Styles.viewMoreButton}>View More</button>
+                  </Link>
+                </Box>
+                <Box className={Styles.topGainersBox_info}>
+                  {basketData.length == 0
+                    ? null
+                    : basketData.map((item, index) => {
+                        if (
+                          item.name == 'Blue-Chip Crypto Basket' ||
+                          item.name == 'All Crypto Basket' ||
+                          item.name == 'NFT Basket' ||
+                          item.name == 'BNB Chain Ecosystem Basket'
+                        ) {
+                          return (
+                            <TopGainersCard
+                              key={index}
+                              Styles={Styles}
+                              item={item}
+                            />
+                          );
+                        }
+                      })}
+                </Box>
+              </Box>
+              <Box className={Styles.highestReturnBox}>
+                <Box sx={{display:"flex", justifyContent:"space-between"}}>
+                  <Typography className={Styles.highestReturnTitle}>
+                  Highest Return (APY)
+                  </Typography>
+                  <Link href={"/Explore"}>
+                    <button className={Styles.viewMoreButton}>View More</button>
+                  </Link>
+                </Box>
+                <Box className={Styles.highestReturnBox_info}>
+                  {basketData.length == 0
+                    ? null
+                    : basketData.map((item, index) => {
+                        if (
+                          item.name == 'Metaverse Basket' ||
+                          item.name == 'NFT Basket' ||
+                          item.name == 'All Crypto Basket' ||
+                          item.name == 'DeFi Basket'
+                        ) {
+                          return (
+                            <HighestReturnCard
+                              key={index}
+                              Styles={Styles}
+                              item={item}
+                            />
+                          );
+                        }
+                      })}
+                  {[1, 2, 3, 4].map((item) => {
+                    return;
+                  })}
+                </Box>
               </Box>
             </Box>
           )}

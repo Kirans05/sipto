@@ -180,6 +180,415 @@
     cursor: pointer;
 }
 
+/* new edits starts here */
+/* trending basket css */
+
+
+.dashboardMainBox .DashboardWelcomeCard{
+    width: 100%;
+    display: flex;
+    border-top: 2px solid rgb(135,165,95);
+    border-right: 2px solid rgb(98,147,85);
+    border-bottom: 2px solid rgb(103,215,116);
+    border-left: 2px solid rgb(131,151,86);
+    padding: 3% 2%;
+    justify-content: space-around;
+    background-color: rgb(35,35,35);
+    border-radius: 15px;
+    align-items: center;
+}
+
+.DashboardWelcomeCard .typographyTitle{
+    font-size: 13px;
+}
+
+.DashboardWelcomeCard .yourInvestment{
+    font-size: 20px;
+}
+
+.DashboardWelcomeCard .userName{
+    color: rgb(218,146,57);
+}
+
+
+/* new trending basket */
+
+
+.dashboardMainBox .viewMoreButton{
+    border: 1px solid rgb(255,210,103);
+    color: rgb(255,210,103);
+    background-color: rgb(30,30,30);
+    border-radius: 5px;
+}
+
+.dashboardMainBox .viewMoreButton:hover{
+    cursor: pointer;
+    animation: viewmoreBtnShake 10s  infinite ease-in-out;
+}
+
+
+@keyframes viewmoreBtnShake {
+    0%{
+        transform: translate(0, -1px);
+    }
+    50%{
+        transform: translate(0, -3px);
+    }
+    100%{
+        transform: translate(0, -6px);
+    }
+}
+
+.trendingBasketBox{
+    display: flex;
+    flex-direction: column;
+    row-gap: 20px;
+    width: 100%;
+}
+
+
+
+.trendingBasketBox .trendingBasketTitle{
+    font-size: 22px;
+}
+
+.trendingBasketCard{
+    display: flex;
+    justify-content: space-between;
+}
+
+.trendingBasketCard .trendingBasketCard1{
+    width: 47%;
+    display: flex;
+    column-gap: 20px;
+    padding: 2%;
+    align-items: center;
+    border-top: 1px solid rgb(68,193,107);
+    border-left: 1px solid rgb(51,142,82);
+    border-bottom: 1px solid rgb(88,84,56);
+    border-right: 1px solid rgb(33,33,33);
+    background-color: rgb(39,39,39);
+    border-radius: 10px;
+}
+
+.trendingBasketCard .trendingBasketCard1:hover{
+    animation: shakeBox 1s  ease-in-out;
+    cursor: pointer;
+}
+
+@keyframes shakeBox {
+    0%{
+        border-top: 1px solid rgb(68,193,107);
+        border-right: 1px solid rgb(33,33,33);
+        border-bottom: 1px solid rgb(88,84,56);
+        border-left: 1px solid rgb(51,142,82);
+        transform: translate(0px, -0px);
+    }
+
+    25%{
+        border-top: 1px solid rgb(51,142,82);
+        border-right: 1px solid rgb(68,193,107);
+        border-bottom: 1px solid rgb(33,33,33);
+        border-left: 1px solid rgb(88,84,56);
+        transform: translate(0px, -2px);
+    }
+
+    50%{
+        border-top: 1px solid rgb(88,84,56);
+        border-right: 1px solid rgb(51,142,82);
+        border-bottom: 1px solid rgb(68,193,107);
+        border-left: 1px solid rgb(33,33,33);
+        transform: translate(0px, -4px);
+    }
+
+    100%{
+        border-top: 1px solid rgb(33,33,33);
+        border-right: 1px solid rgb(88,84,56);
+        border-bottom:  1px solid rgb(51,142,82);
+        border-left: 1px solid rgb(68,193,107);
+        transform: translate(0px, -6px);
+    }
+}
+
+.trendingBasketCard1 .trendingBasketCardImage{
+    width: 25%;
+    height: 70%;
+    /* border-radius: 50px; */
+}
+
+.trendingBasketCard1 .basketCardSecondPart{
+    display: flex;
+    flex-direction: column;
+    row-gap: 10px;
+}
+
+.basketCardSecondPart .basketImagesBox{
+    display: flex;
+    align-items: center;
+}
+
+.basketImagesBox .basketAssestsImage{
+    min-width: 10%;
+    max-width: 10%;
+}
+
+.basketCardSecondPart .investmentAndReturnBox{
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.investmentAndReturnBox .returnBox{
+    display: flex;
+    flex-direction: column;
+}
+
+
+.investmentAndReturnBox .investmentBox{
+    display: flex;
+    flex-direction: column;
+}
+
+.basketCardSecondPart .cardTitle{
+    font-size: 22px;
+}
+
+.basketCardSecondPart .trendingTypography{
+    font-size: 13px;
+}
+
+
+/*  top Gainers  css*/
+.TopGainersBox{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    row-gap: 20px;
+}
+
+
+.TopGainersBox .topGainersTitle{
+    font-size: 22px;
+}
+
+.TopGainersBox .topGainersBox_info{
+    display: flex;
+    column-gap: 30px;
+    flex-wrap: wrap;
+    row-gap: 20px;
+}
+
+.topGainersCardBox {
+    display: flex;
+    width: 22%;
+    flex-direction: column;
+    row-gap: 20px;
+    padding: 1% 1%;
+    background-color: rgb(40,40,40);
+    border-radius: 15px;
+}
+
+.topGainersCardBox:hover{
+    cursor: pointer;
+    animation: shakeTopGainersCard 1s  ease-in-out;
+}
+
+
+@keyframes shakeTopGainersCard {
+    0%{
+        transform: translate(0px, -0px);
+    }
+    25%{
+        transform: translate(0px, -2px);
+    }
+    50%{
+        transform: translate(0px, -4px);
+    }
+    100%{
+        transform: translate(0px, -6px);
+    }
+}
+
+.topGainersCardBox .topGainersCardFirstHalf{
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+}
+
+.topGainerCardImageBox{
+    position: relative;
+    width: 120px;
+}
+
+.topGainerCardImageBox .topGainersCardImages1{
+    position: absolute;
+    min-width: 40px;
+    max-width: 40px;
+    top: 0px;
+    left: 0px;
+    z-index: 0;
+}
+.topGainerCardImageBox .topGainersCardImages2{
+    position: absolute;
+    min-width: 40px;
+    max-width: 40px;
+    top: 0px;
+    left: 10px;
+    z-index: 1;
+}
+.topGainerCardImageBox .topGainersCardImages3{
+    position: absolute;
+    min-width: 40px;
+    max-width: 40px;
+    top: 0px;
+    left: 20px;
+    z-index: 2;
+}
+.topGainerCardImageBox .topGainersCardImages4{
+    position: absolute;
+    min-width: 40px;
+    max-width: 40px;
+    top: 0px;
+    left: 30px;
+    z-index: 3;
+}
+.topGainerCardImageBox .topGainersCardImages5{
+    position: absolute;
+    min-width: 40px;
+    max-width: 40px;
+    top: 0px;
+    left: 40px;
+    z-index: 4;
+}
+
+.topGainersCardBox .topGainersCardSecondHalf{
+    display: flex;
+    flex-direction: column;
+    row-gap: 15px;
+}
+
+.topGainersCardBox .typographySTyles{
+    font-size: 16px;
+}
+
+
+
+
+
+/*  Highest Return  css*/
+.highestReturnBox{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    row-gap: 20px;
+}
+
+
+.highestReturnBox .highestReturnTitle{
+    font-size: 22px;
+}
+
+.highestReturnBox .highestReturnBox_info{
+    display: flex;
+    column-gap: 30px;
+    flex-wrap: wrap;
+    row-gap: 20px;
+}
+
+.highestReturnCardBox {
+    display: flex;
+    width: 22%;
+    flex-direction: column;
+    row-gap: 20px;
+    padding: 1% 1%;
+    background-color: rgb(40,40,40);
+    border-radius: 15px;
+}
+
+.highestReturnCardBox:hover{
+    cursor: pointer;
+    animation: shakehighestReturnCard 1s  ease-in-out;
+}
+
+
+@keyframes shakehighestReturnCard {
+    0%{
+        transform: translate(0px, -0px);
+    }
+    25%{
+        transform: translate(0px, -2px);
+    }
+    50%{
+        transform: translate(0px, -4px);
+    }
+    100%{
+        transform: translate(0px, -6px);
+    }
+}
+
+.highestReturnCardBox .highestReturnCardFirstHalf{
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+}
+
+.highestReturnCardImageBox{
+    position: relative;
+    width: 120px;
+    /* border: 2px solid red; */
+}
+
+.highestReturnCardImageBox .highestReturnCardImages1{
+    position: absolute;
+    min-width: 40px;
+    max-width: 40px;
+    top: 0px;
+    left: 0px;
+    z-index: 0;
+}
+.highestReturnCardImageBox .highestReturnCardImages2{
+    position: absolute;
+    min-width: 40px;
+    max-width: 40px;
+    top: 0px;
+    left: 10px;
+    z-index: 1;
+}
+.highestReturnCardImageBox .highestReturnCardImages3{
+    position: absolute;
+    min-width: 40px;
+    max-width: 40px;
+    top: 0px;
+    left: 20px;
+    z-index: 2;
+}
+.highestReturnCardImageBox .highestReturnCardImages4{
+    position: absolute;
+    min-width: 40px;
+    max-width: 40px;
+    top: 0px;
+    left: 30px;
+    z-index: 3;
+}
+.highestReturnCardImageBox .highestReturnCardImages5{
+    position: absolute;
+    min-width: 40px;
+    max-width: 40px;
+    top: 0px;
+    left: 40px;
+    z-index: 4;
+}
+
+.highestReturnCardBox .highestReturnCardSecondHalf{
+    display: flex;
+    flex-direction: column;
+    row-gap: 15px;
+}
+
+.highestReturnCardBox .typographySTyles{
+    font-size: 16px;
+}
 
 
 
@@ -196,21 +605,9 @@
         padding: 5% 5% 4%;
     }
     
-    .portfolioBox .portfolioBackgroundCircle1{
-    }
-    
-    .portfolioBox .portfolioBackgroundCircle2{
-    }
-    
     .totalOrderBox{
         width: 100%;
         padding: 5% 5% 4%;
-    }
-    
-    .totalOrderBox .totalOrderBackgroundCircle1{
-    }
-    
-    .totalOrderBox .totalOrderBackgroundCircle2{
     }
     
     .totalOrderBox .fund_withdrawBtn{
@@ -272,6 +669,155 @@
     .simpleMainBox .headerAndMainCompo{
         width: 100%;
     }
+
+    /*  startes here */
+
+    .dashboardMainBox .DashboardWelcomeCard{
+        display: flex;
+        padding: 3% 4%;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    .DashboardWelcomeCard .DashboardWelcomeCardFirstPart{
+        display: flex;
+        flex-direction: column-reverse;
+    }
+
+    .DashboardWelcomeCard .DashboardWelcomeCardSecondPart{
+        display: none;
+    }
+
+    .DashboardWelcomeCard .DashboardWelcomeCardFourthPart{
+        display: none;
+    }
+    
+    .DashboardWelcomeCard .typographyTitle{
+        font-size: 14px;
+    }
+    
+    .DashboardWelcomeCard .yourInvestment{
+        font-size: 18px;
+    }
+
+    /* starts here */
+
+    .trendingBasketBox{
+        display: flex;
+        flex-direction: column;
+        row-gap: 20px;
+        width: 100%;
+    }
+
+    .trendingBasketBox .trendingBasketTitle{
+        font-size: 20px;
+    }
+
+    .trendingBasketCard{
+        flex-direction: column;
+        row-gap: 20px;
+    }
+
+    .trendingBasketCard .trendingBasketCard1{
+        width: 100%;
+    }
+
+
+    .trendingBasketCard1 .trendingBasketCardImage{
+        width: 30%;
+        height: 30%;
+        /* border-radius: 50px; */
+    }
+
+    .basketImagesBox .basketAssestsImage{
+        min-width: 7%;
+        max-width: 7%;
+    }
+
+    .basketCardSecondPart .cardTitle{
+        font-size: 22px;
+    }
+
+    .basketCardSecondPart .trendingTypography{
+        font-size: 14px;
+    }
+
+    
+        /*  top Gainers  css*/
+    .TopGainersBox{
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        row-gap: 20px;
+    }
+
+
+    .TopGainersBox .topGainersTitle{
+        font-size: 20px;
+    }
+
+    .TopGainersBox .topGainersBox_info{
+        flex-direction: column;
+        flex-wrap: nowrap;
+    }
+
+    .topGainersCardBox {
+        width: 100%;
+        flex-direction: column;
+        row-gap: 20px;
+        padding: 3% 3%;
+    }
+
+    .topGainersCardBox .topGainersCardSecondHalf{
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        row-gap: 0px;
+    }
+
+    .topGainersCardBox .typographySTyles{
+        font-size: 17px;
+    }
+
+    
+    /*  Highest Return  css*/
+
+    .highestReturnBox .highestReturnTitle{
+        font-size: 20px;
+    }
+
+    .highestReturnBox .highestReturnBox_info{
+        column-gap: 0px;
+        flex-direction: column;
+        flex-wrap: nowrap;
+        row-gap: 20px;
+    }
+
+    /* .highestReturnCardImageBox{ */
+        /* position: relative; */
+        /* width: 120px; */
+        /* border: 2px solid red; */
+    /* } */
+
+    .highestReturnCardBox {
+        width: 100%;
+        row-gap: 20px;
+        padding: 3% 3%;
+    }
+
+    .highestReturnCardBox .highestReturnCardSecondHalf{
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        row-gap: 0px;
+    }
+
+    .highestReturnCardBox .typographySTyles{
+        font-size: 20px;
+    }
+
 }
 
 @media (min-width:481px) and (max-width:768px){
@@ -287,21 +833,9 @@
         padding: 5% 5% 4%;
     }
     
-    .portfolioBox .portfolioBackgroundCircle1{
-    }
-    
-    .portfolioBox .portfolioBackgroundCircle2{
-    }
-    
     .totalOrderBox{
         width: 100%;
         padding: 5% 5% 4%;
-    }
-    
-    .totalOrderBox .totalOrderBackgroundCircle1{
-    }
-    
-    .totalOrderBox .totalOrderBackgroundCircle2{
     }
     
     .totalOrderBox .fund_withdrawBtn{
@@ -362,6 +896,148 @@
 
     .simpleMainBox .headerAndMainCompo{
         width: 100%;
+    }
+
+    /*  startes here */
+
+    .dashboardMainBox .DashboardWelcomeCard{
+        display: flex;
+        padding: 3% 4%;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    .DashboardWelcomeCard .DashboardWelcomeCardFirstPart{
+        display: flex;
+        flex-direction: column-reverse;
+    }
+
+    .DashboardWelcomeCard .DashboardWelcomeCardSecondPart{
+        display: none;
+    }
+
+    .DashboardWelcomeCard .DashboardWelcomeCardFourthPart{
+        display: none;
+    }
+    
+    .DashboardWelcomeCard .typographyTitle{
+        font-size: 14px;
+    }
+    
+    .DashboardWelcomeCard .yourInvestment{
+        font-size: 18px;
+    }
+
+    /* starts here */
+
+    .trendingBasketBox{
+        display: flex;
+        flex-direction: column;
+        row-gap: 20px;
+        width: 100%;
+    }
+
+    .trendingBasketBox .trendingBasketTitle{
+        font-size: 20px;
+    }
+
+    .trendingBasketCard{
+        flex-direction: column;
+        row-gap: 20px;
+    }
+
+    .trendingBasketCard .trendingBasketCard1{
+        width: 100%;
+    }
+
+
+    .trendingBasketCard1 .trendingBasketCardImage{
+        width: 25%;
+        height: 50%;
+        /* border-radius: 50px; */
+    }
+
+    .basketImagesBox .basketAssestsImage{
+        min-width: 7%;
+        max-width: 7%;
+    }
+
+    .basketCardSecondPart .cardTitle{
+        font-size: 22px;
+    }
+
+    .basketCardSecondPart .trendingTypography{
+        font-size: 14px;
+    }
+
+    
+        /*  top Gainers  css*/
+    .TopGainersBox{
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        row-gap: 20px;
+    }
+
+
+    .TopGainersBox .topGainersTitle{
+        font-size: 20px;
+    }
+
+    .TopGainersBox .topGainersBox_info{
+        flex-direction: column;
+        flex-wrap: nowrap;
+    }
+
+    .topGainersCardBox {
+        width: 100%;
+        flex-direction: column;
+        row-gap: 20px;
+        padding: 3% 3%;
+    }
+
+    .topGainersCardBox .topGainersCardSecondHalf{
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        row-gap: 0px;
+    }
+
+    .topGainersCardBox .typographySTyles{
+        font-size: 17px;
+    }
+
+    
+    /*  Highest Return  css*/
+
+    .highestReturnBox .highestReturnTitle{
+        font-size: 20px;
+    }
+
+    .highestReturnBox .highestReturnBox_info{
+        column-gap: 0px;
+        flex-direction: column;
+        flex-wrap: nowrap;
+        row-gap: 20px;
+    }
+
+    .highestReturnCardBox {
+        width: 100%;
+        row-gap: 20px;
+        padding: 3% 3%;
+    }
+
+    .highestReturnCardBox .highestReturnCardSecondHalf{
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        row-gap: 0px;
+    }
+
+    .highestReturnCardBox .typographySTyles{
+        font-size: 20px;
     }
 }
 
