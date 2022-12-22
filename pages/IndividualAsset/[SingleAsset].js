@@ -243,7 +243,7 @@ const AssetsPage = () => {
               let coinTableResponse = await supabase.rpc("update_coins_table", {
                 userid: userDetails.id,
                 coin_id: coinId,
-                purchase_price: Math.ceil(totalPrice),
+                purchase_price: Math.ceil(coinDetails.market_data.current_price.usd),
                 purchase_unit: unitValue,
               });
               if (coinTableResponse.data == true) {

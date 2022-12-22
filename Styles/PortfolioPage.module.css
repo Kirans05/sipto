@@ -15,19 +15,170 @@
 
 .portfolioMainBox {
     display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: flex-start;
+    row-gap: 10px;
+    width: 100%;
+    padding: 4% 2%;
+}
+
+
+.portfolioMainBox .positionCardMainBox{
+    display: flex;
     flex-direction: column;
     justify-content: flex-start;
     align-items: center;
     row-gap: 10px;
-    width: 100%;
-    padding: 4%;
+    width: 65%;
 }
+
+.portfolioMainBox .buySellOptionsBox{
+    width: 33%;
+    height: 50vh;
+    position: sticky;
+    top: 95px;
+    padding: 2% 2%;
+    border: 1px solid white;
+    border-radius: 15px;
+    background-color: rgb(39,39,39);
+}
+
+.buySellOptionsBox .investmentNoOptions{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+}
+
+
+.buySellOptionsBox .walletBalance_AddMoney{
+    position: absolute;
+    bottom: 10px;
+    width: 90%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+
+.walletBalance_AddMoney .addmoneyButton{
+    color: rgb(39,215,117);
+}
+
+.walletBalance_AddMoney .addmoneyButton:hover{
+    cursor: pointer;
+}
+
+.buySellOptionsBox .sellOptionBox{
+    display: flex;
+    flex-direction: column;
+    row-gap: 10px;
+}
+
+
+.sellOptionBox .titleBox{
+    display: flex;
+    justify-content: space-between;
+}
+
+.titleBox .title{
+    color: white;
+    text-transform: capitalize;
+    font-size: 22px;
+}
+
+.sellOptionBox .otherOption{
+    display: flex;
+    column-gap: 20px;
+}
+
+.otherOption .buySellButton{
+    font-size: 17px;
+    border-bottom: 5px solid rgb(39,39,39);
+}
+
+
+.otherOption .buySellButton:hover{
+    border-bottom: 5px solid white;
+    cursor: pointer;
+}
+
+.sellOptionBox .input_Sell_button{
+    display: flex;
+    flex-direction: column;
+    row-gap: 20px;
+}
+
+.input_Sell_button .sellButton{
+    border: 2px solid rgb(255,215,0);
+    color: rgb(255,215,0);
+    background-color: rgb(39,39,39);
+    align-self: center;
+    padding: 3% 6%;
+    border-radius: 10px;
+}
+
+.input_Sell_button .sellButton:hover{
+    cursor: pointer;
+}
+
+
+.buySellOptionsBox .buyOptionBox{
+    display: flex;
+    flex-direction: column;
+    row-gap: 10px;
+}
+
+
+.buyOptionBox .titleBox{
+    display: flex;
+    justify-content: space-between;
+}
+
+.titleBox .title{
+    color: white;
+    text-transform: capitalize;
+    font-size: 22px;
+}
+
+.buyOptionBox .otherOption{
+    display: flex;
+    column-gap: 20px;
+}
+
+.buyOptionBox .input_buy_button{
+    display: flex;
+    flex-direction: column;
+    row-gap: 20px;
+}
+
+.input_buy_button .buyButton{
+    border: 2px solid rgb(255,215,0);
+    color: rgb(255,215,0);
+    background-color: rgb(39,39,39);
+    align-self: center;
+    padding: 3% 6%;
+    border-radius: 10px;
+}
+
+.input_buy_button .buyButton:hover{
+    cursor: pointer;
+}
+
 
 .portfolioMainBox .portfolioCardMainBox{
     display: flex;
     width: 80%;
     justify-content: space-between;
-    padding: 1% 2%;
+    padding: 1% 4% 1% 2%;
+    position: relative;
+}
+
+.portfolioCardMainBox .moreOptions{
+    position: absolute; 
+    right: 0px;
 }
 
 
@@ -78,16 +229,16 @@
 
   
 @media (min-width:0px) and (max-width:480px){
-        .PortfolioTable {
-        width: 96%;
-        margin-left: 2%;
-        margin-right: 2%;
-        box-shadow: rgba(17, 17, 26, 0.1) 0px 0px 16px;
-        }
+    .PortfolioTable {
+    width: 96%;
+    margin-left: 2%;
+    margin-right: 2%;
+    box-shadow: rgba(17, 17, 26, 0.1) 0px 0px 16px;
+    }
 
-        .backButton{
-            margin-left: 10px;
-        }
+    .backButton{
+        margin-left: 10px;
+    }
 
     .portfolioMainBox .portfolioCardMainBox{
         width: 96%;
@@ -119,6 +270,71 @@
     .simpleMainBox .headerAndMainCompo{
         width: 100%;
     }
+
+
+    /* new edit */
+
+    .portfolioMainBox {
+        flex-direction: column;
+    }
+
+    .portfolioMainBox .positionCardMainBox{
+        width: 100%;
+    }
+
+    .portfolioMainBox .buySellOptionsBox{
+        width: 100%;
+        /* height: 35vh; */
+        position: sticky;
+        bottom: 5px;
+        padding: 2% 2%;
+        height: fit-content;
+    }
+
+
+    .buySellOptionsBox .walletBalance_AddMoney{
+        display: none;
+    }
+
+    .buySellOptionsBox .sellOptionBox{
+        row-gap: 10px;
+    }
+
+    .titleBox .title{
+        font-size: 22px;
+    }
+
+    .sellOptionBox .input_Sell_button{
+        display: flex;
+        flex-direction: column;
+        row-gap: 10px;
+    }
+
+
+    .buySellOptionsBox .buyOptionBox{
+        row-gap: 10px;
+    }
+
+    .buyOptionBox .input_buy_button{
+        row-gap: 10px;
+    }
+
+
+    .portfolioMainBox .portfolioCardMainBox{
+        display: flex;
+        width: 100%;
+        padding: 1% 2% 1% 2%;
+        position: relative;
+        /* border: 2px solid red; */
+    }
+
+    .portfolioCardMainBox .moreOptions{
+        position: absolute;
+        right: 0px;
+        display: none;
+    }
+
+    /* edit ends here */
 }
 
 @media (min-width:481px) and (max-width:768px){
@@ -159,6 +375,101 @@
     .simpleMainBox .headerAndMainCompo{
         width: 100%;
     }
+
+    /* new edits starts here */
+
+    .portfolioMainBox {
+        flex-direction: column;
+    }
+
+    .portfolioMainBox .positionCardMainBox{
+        width: 100%;
+    }
+
+    .portfolioMainBox .buySellOptionsBox{
+        width: 100%;
+        position: sticky;
+        bottom: 5px;
+        height: fit-content;
+    }
+
+    .buySellOptionsBox .investmentNoOptions{
+    }
+
+
+    .buySellOptionsBox .walletBalance_AddMoney{
+        display: none;
+    }
+
+
+    .walletBalance_AddMoney .addmoneyButton{
+    }
+
+    .buySellOptionsBox .sellOptionBox{
+        row-gap: 15px;
+    }
+
+
+    .sellOptionBox .titleBox{
+    }
+
+    .titleBox .title{
+        font-size: 22px;
+    }
+
+    .sellOptionBox .otherOption{
+    }
+
+    .otherOption .buySellButton{
+    }
+
+    .sellOptionBox .input_Sell_button{
+        display: flex;
+        flex-direction: column;
+        row-gap: 15px;
+    }
+
+    .input_Sell_button .sellButton{
+    }
+
+
+    .buySellOptionsBox .buyOptionBox{
+        row-gap: 15px;
+    }
+
+
+    .buyOptionBox .titleBox{
+    }
+
+    .titleBox .title{
+    }
+
+    .buyOptionBox .otherOption{
+    }
+
+    .buyOptionBox .input_buy_button{
+        row-gap: 15px;
+    }
+
+    .input_buy_button .buyButton{
+    }
+
+
+    .portfolioMainBox .portfolioCardMainBox{
+        display: flex;
+        width: 100%;
+        padding: 1% 2% 1% 2%;
+        position: relative;
+        /* border: 2px solid red; */
+    }
+
+    .portfolioCardMainBox .moreOptions{
+        position: absolute;
+        right: 0px;
+        display: none;
+    }
+
+    /* edit edits here */
 }
 
 @media (min-width:769px)  and (max-width:1260px) {

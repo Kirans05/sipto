@@ -170,7 +170,7 @@ const Sidebar = () => {
                 </Button>
               </Link>
             </ListItem>
-            <ListItem component="div" className={'listItem'}>
+            {/* <ListItem component="div" className={'listItem'}>
               <Link href="/Basket" className={'link'}>
                 <Button
                   className={
@@ -183,7 +183,7 @@ const Sidebar = () => {
                   Basket
                 </Button>
               </Link>
-            </ListItem>
+            </ListItem> */}
             <ListItem component="div" className={'listItem'}>
               {/* <Link href="/"> */}
               <Button
