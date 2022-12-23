@@ -173,6 +173,7 @@ const RecentOrdersTable = ({ transactionDetails }) => {
                       color="text.primary"
                       gutterBottom
                       noWrap
+                      sx={{color:item.message.endsWith("sell") ? "rgb(224,13,12)" : item.message.endsWith("buy") ? "rgb(41,207,153)" : "white"}}
                     >
                       {item.message}
                     </Typography>

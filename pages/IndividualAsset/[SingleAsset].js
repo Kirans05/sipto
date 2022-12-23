@@ -77,7 +77,6 @@ const AssetsPage = () => {
     let response = await axios(
       `https://api.coingecko.com/api/v3/coins/${coinId}?tickers=true&market_data=true&community_data=false&developer_data=false`
     );
-    console.log(response.data);
     setCoinDetails(response.data);
   };
 

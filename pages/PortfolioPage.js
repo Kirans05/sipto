@@ -76,6 +76,7 @@ const Portfolio = () => {
       let positionsResponse = await supabase
         .from('coins_table')
         .select('*')
+        .order('coins_table_id', { ascending: false })
         .eq('id', userId);
 
       setpositionsArr(positionsResponse.data);
@@ -264,6 +265,9 @@ const Portfolio = () => {
           <Box className={Styles.portfolioMainBox}>
             <Box className={Styles.positionCardMainBox}>
               {positionsArr.map((item, index) => {
+                if(item.units_purchase <= 0){
+                  
+                }else{
                 return (
                   <PortfolioCard
                     key={index}
@@ -273,6 +277,7 @@ const Portfolio = () => {
                     optionClicked={optionClicked}
                   />
                 );
+                }
               })}
             </Box>
             <Box className={Styles.buySellOptionsBox}>

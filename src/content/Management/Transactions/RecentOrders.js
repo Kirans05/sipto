@@ -161,11 +161,13 @@ function RecentOrders() {
         let TransctionResponse = await supabase
           .from('transaction_table')
           .select('*')
+          .order('transaction_table_id', { ascending: false })
           .eq('id', user.id);
 
         setTransactionDetails(TransctionResponse.data)
-        console.log(TransctionResponse.data)
-      } catch (err) {}
+      } catch (err) {
+        
+      }
     };
 
     fetchTransactionList();
