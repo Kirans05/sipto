@@ -196,6 +196,12 @@
     border: 2px solid gold;
 }
 
+.mainBoxRightPart .setSipButton {
+    background-color: rgb(30,30,30);
+    color: white;
+    border: 2px solid white;
+}
+
 .mainBoxRightPart .investmentAmount{
     display: flex;
     flex-direction: column;
@@ -338,6 +344,144 @@
 }
 
 
+/*  syling of drawer starts here */
+    .sipDrawer{
+        width: 450px;
+        /* width: 100%; */
+        padding: 5% 5%;
+        display: flex;
+        flex-direction: column;
+        row-gap: 40px;
+    }
+
+    .sipDrawer .sipDrawerHeading{
+        display: flex;
+        flex-direction: column;
+        row-gap: 5px;
+    }
+
+    .sipDrawerHeading .basketTitle{
+        font-size: 13px;
+    }
+
+
+    .sipDrawerHeading .basketPrice{
+        font-size: 20px;
+    }
+
+
+    .sipDrawerHeading .sipLogo{
+        background-color: rgb(89,170,0);
+        width: fit-content;
+        padding: 0% 2% 0%;
+        border-radius: 5px;
+    }
+
+
+    .sipDrawer .sipDrawerBody{
+        /* background-color: white;
+        color: black; */
+        padding: 2% 1%;
+        display: flex;
+        flex-direction: column;
+        row-gap: 40px;
+    }
+
+    .sipDrawerBody .drawerBodydFirstPart{
+        display: flex;
+        justify-content: flex-start;
+        column-gap: 3px;
+        align-items: center;
+    }
+
+    .drawerBodydFirstPart .drawerTypography{
+        font-size: 12px;
+    }
+
+    .drawerBodydFirstPart .drawerTypographyMonthy{
+        font-size: 15px;
+        display: flex;
+        align-items: center;
+        /* background-color: rgb(238,238,240); */
+        padding: 0% 2% 0% 0%;
+    }
+
+
+    .drawerBodydFirstPart .drawerTypographyWeekly{
+        font-size: 15px;
+        display: flex;
+        align-items: center;
+        /* background-color: rgb(238,238,240); */
+        padding: 0% 2% 0% 0%;
+    }
+
+    .sipDrawerBody .drawerBodySecondPart{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        row-gap: 10px;
+    }
+
+    .drawerBodySecondPart .divider{
+        border-bottom: 1px solid white;
+        align-self: center;
+        width: 30%;
+    }
+
+    .drawerBodySecondPart .shareQty{
+        font-size: 22px;
+    }
+
+    .sipDrawerBody .drawerBodyThirdPart{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        row-gap: 10px;
+    }
+
+    .drawerBodyThirdPart .divider{
+        border-bottom: 1px solid white;
+        align-self: center;
+        width: 40%;
+    }
+
+    .drawerBodyThirdPart .dayOfInvestment{
+        /* border: 3px solid black; */
+        /* outline: 2px solid red; */
+        /* outline: 2px solid rgb(162,150,243); */
+    }
+
+
+    .sipDrawerBody .drawerBodyFourthPart{
+        display: flex;
+        flex-direction: column;
+        row-gap: 10px;
+    }
+
+    .drawerBodyFourthPart .sipWarning{
+        /* color: orange; */
+        background-color: rgb(240, 220, 74);
+        /* background-color: rgb(255,252,228); */
+        color: black;
+        font-size: 10px;
+        padding-left: 5px;
+        padding-top: 2px;
+        padding-bottom: 2px;
+    }
+
+    .drawerBodyFourthPart .startSipButton{
+        background-color: rgb(167,171,182);
+        padding: 2%;
+        /* border-color: rgb(167,171,182); */
+        border-radius: 5px;
+        box-shadow: none;
+    }
+
+    .drawerBodyFourthPart .startSipButton:hover{
+        cursor: pointer;
+    }
+
+
 @media (min-width:0px) and (max-width:480px){
     .mainBox{
         padding: 2%;
@@ -439,6 +583,44 @@
 
     .simpleMainBox .headerAndMainCompo{
         width: 100%;
+    }
+
+    /* new editing sip drawer stying  */
+
+    
+    .sipDrawer{
+        width: 100%;
+        padding: 5% 5%;
+    }
+
+    .sipDrawerHeading .basketTitle{
+        font-size: 15px;
+    }
+
+
+    .sipDrawerHeading .basketPrice{
+        font-size: 22px;
+    }
+
+    .drawerBodydFirstPart .drawerTypography{
+        font-size: 10px;
+    }
+
+    .drawerBodydFirstPart .drawerTypographyMonthy{
+        font-size: 15px;
+    }
+
+
+    .drawerBodydFirstPart .drawerTypographyWeekly{
+        font-size: 15px;
+    }
+
+    .drawerBodySecondPart .shareQty{
+        font-size: 22px;
+    }
+
+    .drawerBodyFourthPart .sipWarning{
+        font-size: 11px;
     }
 }
 
@@ -543,6 +725,44 @@
 
     .simpleMainBox .headerAndMainCompo{
         width: 100%;
+    }
+
+    /* new editing sip drawer stying  */
+
+    
+    .sipDrawer{
+        width: 100%;
+        padding: 5% 5%;
+    }
+
+    .sipDrawerHeading .basketTitle{
+        font-size: 15px;
+    }
+
+
+    .sipDrawerHeading .basketPrice{
+        font-size: 22px;
+    }
+
+    .drawerBodydFirstPart .drawerTypography{
+        font-size: 10px;
+    }
+
+    .drawerBodydFirstPart .drawerTypographyMonthy{
+        font-size: 15px;
+    }
+
+
+    .drawerBodydFirstPart .drawerTypographyWeekly{
+        font-size: 15px;
+    }
+
+    .drawerBodySecondPart .shareQty{
+        font-size: 22px;
+    }
+
+    .drawerBodyFourthPart .sipWarning{
+        font-size: 11px;
     }
 }
 

@@ -193,20 +193,20 @@ const Header = () => {
                 </Button>
               </Link>
             </ListItem>
-            {/* <ListItem component="div" className={'listItem'}>
-              <Link href="/Basket" className={'link'}>
+            <ListItem component="div" className={'listItem'}>
+              <Link href="/SipPages" className={'link'}>
                 <Button
                   className={
-                    currentRoute === '/Basket' ? 'active' : 'notActive'
+                    currentRoute === '/SipPages' ? 'active' : 'notActive'
                   }
                   disableRipple
                   // onClick={() => router.push("Basket")}
                   startIcon={<ShoppingBasketIcon />}
                 >
-                  Basket
+                  SIP
                 </Button>
               </Link>
-            </ListItem> */}
+            </ListItem>
             <ListItem component="div" className={'listItem'}>
               {/* <Link href="/"> */}
               <Button
