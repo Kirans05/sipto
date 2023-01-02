@@ -95,7 +95,7 @@
 
 import Head from 'next/head';
 import SidebarLayout from 'src/layouts/SidebarLayout';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import PageHeader from 'src/content/Dashboards/Tasks/PageHeader';
 import Footer from 'src/components/Footer';
 import {
@@ -122,6 +122,7 @@ import TaskSearch from 'src/content/Dashboards/Tasks/TaskSearch';
 import Styles from "../Styles/Index.module.css"
 import Header from '../Component/Header/Header';
 import Sidebar from '../Component/Siderbar/Sidebar';
+import { useRouter } from 'next/router';
 
 const TabsContainerWrapper = styled(Box)(
   ({ theme }) => `
@@ -206,6 +207,8 @@ const TabsContainerWrapper = styled(Box)(
 );
 
 function DashboardTasks() {
+
+  const router = useRouter()
   const theme = useTheme();
 
   const [currentTab, setCurrentTab] = useState('analytics');
@@ -218,6 +221,17 @@ function DashboardTasks() {
   const handleTabsChange = (_event, value) => {
     setCurrentTab(value);
   };
+
+
+  useEffect(() => {
+    let user = localStorage.getItem('sb-ziaxsvytbaahgjrompdd-auth-token');
+      if (user == null) {
+        router.push("/LoginPage")
+      } else {
+        router.push("/dashboards/tasks")
+      }
+  },[])
+
 
   return (
     <>

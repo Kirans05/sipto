@@ -1,4 +1,4 @@
-import { useRef, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 
 import NextLink from 'next/link';
 
@@ -22,6 +22,7 @@ import ExpandMoreTwoToneIcon from '@mui/icons-material/ExpandMoreTwoTone';
 import AccountBoxTwoToneIcon from '@mui/icons-material/AccountBoxTwoTone';
 import LockOpenTwoToneIcon from '@mui/icons-material/LockOpenTwoTone';
 import AccountTreeTwoToneIcon from '@mui/icons-material/AccountTreeTwoTone';
+import supabase from 'src/Config/supabaseClient';
 
 const UserBoxButton = styled(Button)(
   ({ theme }) => `
@@ -67,6 +68,8 @@ function HeaderUserbox() {
 
   const ref = useRef(null);
   const [isOpen, setOpen] = useState(false);
+  const [userExists, setUSerExists] = useState(false)
+  const [userName, setUserName] = useState("")
 
   const handleOpen = () => {
     setOpen(true);
@@ -76,22 +79,52 @@ function HeaderUserbox() {
     setOpen(false);
   };
 
+
+  const fetchUSerDetails = async (userId) => {
+    try{
+      let response = await supabase
+          .from("profiles")
+          .select("username")
+          .eq('id',userId)
+
+      if(response.status == 200){
+        setUserName(response.data[0].username)
+      }
+    }catch(err){
+
+    }
+  }
+
+  useEffect(() =>{
+    let user = localStorage.getItem('sb-ziaxsvytbaahgjrompdd-auth-token');
+    
+    if (user == null) {
+      setUSerExists(false)
+    } else {
+      setUSerExists(true)
+      // console.log(JSON.parse(user))
+      fetchUSerDetails(JSON.parse(user).user.id)
+    }
+  },[])
+
   return (
     <>
-      <UserBoxButton color="secondary" ref={ref} onClick={handleOpen}>
+    {
+      userExists == false ? null
+      : <UserBoxButton color="secondary" ref={ref}
+      //  onClick={handleOpen}
+       >
         <Avatar variant="rounded" alt={"user.name"} src={"user.avatar"} />
         <Hidden mdDown>
           <UserBoxText>
-            <UserBoxLabel variant="body1">{user.name}</UserBoxLabel>
-            <UserBoxDescription variant="body2">
-              {user.jobtitle}
-            </UserBoxDescription>
+            <UserBoxLabel variant="body1">{userName}</UserBoxLabel>
           </UserBoxText>
         </Hidden>
         <Hidden smDown>
           <ExpandMoreTwoToneIcon sx={{ ml: 1 }} />
         </Hidden>
       </UserBoxButton>
+    }
       <Popover
         anchorEl={ref.current}
         onClose={handleClose}

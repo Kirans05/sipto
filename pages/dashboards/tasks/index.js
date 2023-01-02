@@ -168,7 +168,6 @@ function DashboardTasks() {
   const fetchAllBaskets = async () => {
     try {
       let resp = await supabase.from('bakset_Table').select('*');
-      console.log(resp);
       if (resp.error) {
         return;
       }

@@ -227,6 +227,7 @@ const Header = () => {
 
   useEffect(() => {
     let user = localStorage.getItem('sb-ziaxsvytbaahgjrompdd-auth-token');
+    
     if (user == null) {
       setUserExists(false);
     } else {

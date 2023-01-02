@@ -80,7 +80,6 @@ const Portfolio = () => {
         .eq('id', userId);
 
       setpositionsArr(positionsResponse.data);
-      console.log(positionsResponse.data)
     } catch (err) {}
   };
 
