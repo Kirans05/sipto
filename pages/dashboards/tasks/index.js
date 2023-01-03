@@ -36,6 +36,7 @@ import EjectIcon from '@mui/icons-material/Eject';
 import TrendingBasketCard from '../../../src/components/TrendingBasketCard/TrendingBasketCard';
 import TopGainersCard from '../../../src/components/TopGainersCard/TopGainersCard';
 import HighestReturnCard from '../../../src/components/HighestReturnCard/HighestReturnCard';
+import { useRouter } from 'next/router';
 
 const TabsContainerWrapper = styled(Box)(
   ({ theme }) => `
@@ -120,6 +121,9 @@ const TabsContainerWrapper = styled(Box)(
 );
 
 function DashboardTasks() {
+
+
+  const router = useRouter()
   const [userDetails, setUserDetails] = useState('');
   const [rerender, setRerender] = useState(true);
   const [basketData, setBasketData] = useState([]);
@@ -132,7 +136,10 @@ function DashboardTasks() {
       .single();
 
     let { data } = response;
-    localStorage.setItem('userData', JSON.stringify(data));
+    if(data.first_name == ""){
+      localStorage.setItem('userData', JSON.stringify(data));
+      router.push("/Profile")
+    }
     setUserDetails(data);
   };
 
@@ -177,6 +184,8 @@ function DashboardTasks() {
       }
     } catch (err) {}
   };
+
+  
 
   useEffect(() => {
     const { user } = JSON.parse(
