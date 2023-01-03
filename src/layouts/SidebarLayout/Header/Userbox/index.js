@@ -84,11 +84,14 @@ function HeaderUserbox() {
     try{
       let response = await supabase
           .from("profiles")
-          .select("username")
+          .select("first_name,last_name")
           .eq('id',userId)
 
+
       if(response.status == 200){
-        setUserName(response.data[0].username)
+        let firstName = response.data[0].first_name == null ? "" : response.data[0].first_name
+        let lastName = response.data[0].last_name == null ? "" : response.data[0].last_name
+        setUserName(firstName+" "+lastName)
       }
     }catch(err){
 
@@ -107,12 +110,14 @@ function HeaderUserbox() {
     }
   },[])
 
+
+
   return (
     <>
     {
       userExists == false ? null
       : <UserBoxButton color="secondary" ref={ref}
-      //  onClick={handleOpen}
+       onClick={handleOpen}
        >
         <Avatar variant="rounded" alt={"user.name"} src={"user.avatar"} />
         <Hidden mdDown>
@@ -141,13 +146,10 @@ function HeaderUserbox() {
         <MenuUserBox sx={{ minWidth: 210 }} display="flex">
           <Avatar variant="rounded" alt={"user"} src={"user"} />
           <UserBoxText>
-            <UserBoxLabel variant="body1">{user.name}</UserBoxLabel>
-            <UserBoxDescription variant="body2">
-              User
-            </UserBoxDescription>
+            <UserBoxLabel variant="body1">{userName}</UserBoxLabel>
           </UserBoxText>
         </MenuUserBox>
-        <Divider sx={{ mb: 0 }} />
+        {/* <Divider sx={{ mb: 0 }} />
         <List sx={{ p: 1 }} component="nav">
           <NextLink href="/management/profile" passHref>
             <ListItem button>
@@ -174,7 +176,7 @@ function HeaderUserbox() {
             <LockOpenTwoToneIcon sx={{ mr: 1 }} />
             Sign out
           </Button>
-        </Box>
+        </Box> */}
       </Popover>
     </>
   );

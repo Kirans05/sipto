@@ -20,6 +20,7 @@ import HowToRegIcon from '@mui/icons-material/HowToReg';
 import TableChartTwoToneIcon from '@mui/icons-material/TableChartTwoTone';
 import supabase from 'src/Config/supabaseClient';
 import RemoveCircleOutlineIcon from '@mui/icons-material/RemoveCircleOutline';
+import RememberMeIcon from '@mui/icons-material/RememberMe';
 
 
 const Header = () => {
@@ -190,6 +191,20 @@ const Header = () => {
                   startIcon={<StoreIcon />}
                 >
                   Show Assets
+                </Button>
+              </Link>
+            </ListItem>
+            <ListItem component="div" className={'listItem'}>
+              <Link href="/Profile" className={'link'}>
+                <Button
+                  className={
+                    currentRoute === '/Profile' ? 'active' : 'notActive'
+                  }
+                  disableRipple
+                  // onClick={() => router.push("Basket")}
+                  startIcon={<RememberMeIcon />}
+                >
+                  Profile
                 </Button>
               </Link>
             </ListItem>

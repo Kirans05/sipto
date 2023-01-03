@@ -21,6 +21,7 @@ import RemoveCircleOutlineIcon from '@mui/icons-material/RemoveCircleOutline';
 import supabase from 'src/Config/supabaseClient';
 import Link from 'next/link';
 import TableChartTwoToneIcon from '@mui/icons-material/TableChartTwoTone';
+import RememberMeIcon from '@mui/icons-material/RememberMe';
 
 const Sidebar = () => {
   const router = useRouter();
@@ -167,6 +168,20 @@ const Sidebar = () => {
                   startIcon={<StoreIcon />}
                 >
                   Show Assets
+                </Button>
+              </Link>
+            </ListItem>
+            <ListItem component="div" className={'listItem'}>
+              <Link href="/Profile" className={'link'}>
+                <Button
+                  className={
+                    currentRoute === '/Profile' ? 'active' : 'notActive'
+                  }
+                  disableRipple
+                  // onClick={() => router.push("Basket")}
+                  startIcon={<RememberMeIcon />}
+                >
+                  Profile
                 </Button>
               </Link>
             </ListItem>
