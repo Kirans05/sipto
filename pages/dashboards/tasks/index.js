@@ -37,6 +37,8 @@ import TrendingBasketCard from '../../../src/components/TrendingBasketCard/Trend
 import TopGainersCard from '../../../src/components/TopGainersCard/TopGainersCard';
 import HighestReturnCard from '../../../src/components/HighestReturnCard/HighestReturnCard';
 import { useRouter } from 'next/router';
+import {useDispatch, useSelector} from "react-redux"
+import {addUserData} from "../../../Store/UserSlice"
 
 const TabsContainerWrapper = styled(Box)(
   ({ theme }) => `
@@ -122,7 +124,8 @@ const TabsContainerWrapper = styled(Box)(
 
 function DashboardTasks() {
 
-
+  const dispatch = useDispatch()
+  const userState = useSelector((state) => state.userDataSlice)
   const router = useRouter()
   const [userDetails, setUserDetails] = useState('');
   const [rerender, setRerender] = useState(true);
@@ -136,11 +139,13 @@ function DashboardTasks() {
       .single();
 
     let { data } = response;
+    console.log(data)
     if(data.first_name == ""){
       localStorage.setItem('userData', JSON.stringify(data));
       router.push("/Profile")
     }
     setUserDetails(data);
+    dispatch(addUserData(data))
   };
 
   const kycVerification = async () => {
@@ -218,12 +223,30 @@ function DashboardTasks() {
             </Alert>
           )}
           {userDetails == '' ? (
-            <Skeleton
-              variant="rectangular"
-              width={400}
-              height={120}
-              style={{ borderRadius: '20px', marginLeft: '4%' }}
-            />
+            <Box className={Styles.skeletonBox}>
+              <Box className={Styles.firstSkeletonBox}>
+                {
+
+                  [1,2].map((item, index) => {
+                    return <Skeleton
+                              key={index}
+                              variant="rectangular"
+                              className={Styles.walletSkeleton}
+                              />
+                  })
+                }
+              </Box>
+              <Box className={Styles.secondSkeletonBox}>
+                  <Skeleton
+                variant="rectangular"
+                className={Styles.chartSkeleton}
+                />
+                  <Skeleton
+                variant="rectangular"
+                className={Styles.chartSkeleton}
+                />
+              </Box>
+            </Box>
           ) : (
             <Box className={Styles.dashboardMainBox}>
               <Box className={Styles.portfolioBox}>

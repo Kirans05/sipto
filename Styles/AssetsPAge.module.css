@@ -75,6 +75,23 @@
     font-size: 15px;
 }
 
+/*  skeleton stying starts from here */
+
+.AssetsPageBox .coinPageSkeleton{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    row-gap: 20px;
+    align-items: center;
+}
+
+
+.coinPageSkeleton .assestsSkeleton{
+    width: 80%;
+    height: 80px;
+    border-radius: 20px;
+}
+
 
 @media (min-width:0px) and (max-width:480px){
     .AssetsPageBox{
@@ -120,6 +137,14 @@
     }
 
     .simpleMainBox .headerAndMainCompo{
+        width: 100%;
+    }
+
+    /*  skeleton stying starts from here */
+
+
+
+    .coinPageSkeleton .assestsSkeleton{
         width: 100%;
     }
 }
@@ -168,6 +193,15 @@
     }
 
     .simpleMainBox .headerAndMainCompo{
+        width: 100%;
+    }
+
+    
+    /*  skeleton stying starts from here */
+
+
+
+    .coinPageSkeleton .assestsSkeleton{
         width: 100%;
     }
 }

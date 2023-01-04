@@ -59,16 +59,16 @@ const AssetsPage = () => {
         <Box className={Styles.AssetsPageBox}>
         {coinData.length == 0 ? (
           <Box className={Styles.coinPageSkeleton}>
-            <Skeleton variant="rounded" className={Styles.skeleton} />
-            <Skeleton variant="rounded" className={Styles.skeleton} />
-            <Skeleton variant="rounded" className={Styles.skeleton} />
-            <Skeleton variant="rounded" className={Styles.skeleton} />
-            <Skeleton variant="rounded" className={Styles.skeleton} />
-            <Skeleton variant="rounded" className={Styles.skeleton} />
-            <Skeleton variant="rounded" className={Styles.skeleton} />
-            <Skeleton variant="rounded" className={Styles.skeleton} />
-            <Skeleton variant="rounded" className={Styles.skeleton} />
-            <Skeleton variant="rounded" className={Styles.skeleton} />
+            <Skeleton variant="rounded" className={Styles.assestsSkeleton} />
+            <Skeleton variant="rounded" className={Styles.assestsSkeleton} />
+            <Skeleton variant="rounded" className={Styles.assestsSkeleton} />
+            <Skeleton variant="rounded" className={Styles.assestsSkeleton} />
+            <Skeleton variant="rounded" className={Styles.assestsSkeleton} />
+            <Skeleton variant="rounded" className={Styles.assestsSkeleton} />
+            <Skeleton variant="rounded" className={Styles.assestsSkeleton} />
+            <Skeleton variant="rounded" className={Styles.assestsSkeleton} />
+            <Skeleton variant="rounded" className={Styles.assestsSkeleton} />
+            <Skeleton variant="rounded" className={Styles.assestsSkeleton} />
           </Box>
         ) : (
           <Box className={Styles.coinCardBox}>

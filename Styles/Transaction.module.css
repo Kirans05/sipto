@@ -18,6 +18,11 @@
     padding: 2% 1% 2%;
 }
 
+.transactionSkeleton{
+    width: 100%;
+    /* border: 2px solid red; */
+}
+
 @media (min-width:0px)  and (max-width:1260px) {
     .simpleMainBox .headerAndMainCompo{
         width: 100%;

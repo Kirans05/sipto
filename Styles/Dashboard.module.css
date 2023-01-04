@@ -591,6 +591,41 @@
 }
 
 
+/*  skeleton editing satrts here */
+.skeletonBox{
+    display: flex;
+    row-gap: 40px;
+    flex-direction: column;
+    padding: 2%;
+}
+
+
+.skeletonBox .firstSkeletonBox{
+    display: flex;
+    flex-direction: row;
+    column-gap: 20px;
+}
+
+.firstSkeletonBox .walletSkeleton{
+    width: 35%;
+    height: 100px;
+    border-radius: 20px;
+}
+
+.skeletonBox .secondSkeletonBox{
+    display: flex;
+    flex-direction: column;
+    row-gap: 40px;
+}
+
+
+.secondSkeletonBox .chartSkeleton{
+    width: 70%;
+    border-radius: 20px;
+    height: 300px;
+}
+
+
 
 @media (min-width:0px) and (max-width:480px){
     .dashboardMainBox{
@@ -818,6 +853,17 @@
         font-size: 20px;
     }
 
+    
+/*  skeleton editing satrts here */
+    .skeletonBox{
+        padding: 4%;
+    }
+
+    .firstSkeletonBox .walletSkeleton{
+        width: 50%;
+        height: 150px;
+    }
+
 }
 
 @media (min-width:481px) and (max-width:768px){
@@ -1038,6 +1084,17 @@
 
     .highestReturnCardBox .typographySTyles{
         font-size: 20px;
+    }
+
+
+    /*  skeleton editing satrts here */
+    .skeletonBox{
+        padding: 4%;
+    }
+
+    .firstSkeletonBox .walletSkeleton{
+        width: 50%;
+        height: 150px;
     }
 }
 

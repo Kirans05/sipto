@@ -2,6 +2,7 @@ import Head from 'next/head';
 import {
   Box,
   Button,
+  Skeleton,
   Snackbar,
   Table,
   TableBody,
@@ -262,7 +263,21 @@ const Portfolio = () => {
         <Box className={Styles.headerAndMainCompo}>
           <Header />
           <Box className={Styles.portfolioMainBox}>
-            <Box className={Styles.positionCardMainBox}>
+            {
+              positionsArr.length == 0 ? 
+              <Box className={Styles.skeletonBox}>
+                {
+                  [1,2,3,4,5,6].map((item) => {
+                    return <Skeleton
+                    key={item}
+                    variant="rectangular"
+                    className={Styles.portfolioSkeleton}
+                    />
+                  })
+                }
+                
+              </Box>
+              : <Box className={Styles.positionCardMainBox}>
               {positionsArr.map((item, index) => {
                 if(item.units_purchase <= 0){
                   
@@ -279,6 +294,8 @@ const Portfolio = () => {
                 }
               })}
             </Box>
+            } 
+            
             <Box className={Styles.buySellOptionsBox}>
               {optionSelected == 'No Option' ? (
                 <Box className={Styles.investmentNoOptions}>

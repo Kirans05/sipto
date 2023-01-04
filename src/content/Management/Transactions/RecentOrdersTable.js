@@ -21,7 +21,8 @@ import {
   MenuItem,
   Typography,
   useTheme,
-  CardHeader
+  CardHeader,
+  Skeleton
 } from '@mui/material';
 
 import Label from 'src/components/Label';
@@ -162,7 +163,47 @@ const RecentOrdersTable = ({ transactionDetails }) => {
               {/* <TableCell align="right">Actions</TableCell> */}
             </TableRow>
           </TableHead>
-          <TableBody>
+          {
+            transactionDetails.length == 0 ?
+            <TableBody>
+            {
+              [1,2,3,4,5,6,7,8].map(item => {
+                return <TableRow hover >
+                <TableCell align='left'>
+                <Skeleton
+                      variant="rectangular"
+                      className={Styles.transactionSkeleton}
+                      />
+                </TableCell>
+                <TableCell align='center'>
+                <Skeleton
+                      variant="rectangular"
+                      className={Styles.transactionSkeleton}
+                      />
+                </TableCell>
+                <TableCell align='left'>
+                <Skeleton
+                      variant="rectangular"
+                      className={Styles.transactionSkeleton}
+                      />
+                </TableCell>
+                <TableCell align='left'>
+                <Skeleton
+                      variant="rectangular"
+                      className={Styles.transactionSkeleton}
+                      />
+                </TableCell>
+                <TableCell align='left'>
+                <Skeleton
+                      variant="rectangular"
+                      className={Styles.transactionSkeleton}
+                      />
+                </TableCell>
+                </TableRow>
+              })
+            }
+            </TableBody>
+            : <TableBody>
             {transactionDetails.map((item, index) => {
               return (
                 <TableRow hover key={index}>
@@ -230,6 +271,8 @@ const RecentOrdersTable = ({ transactionDetails }) => {
               );
             })}
           </TableBody>
+          }
+          
         </Table>
       </TableContainer>
       {/* <Box p={2}>

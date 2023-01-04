@@ -12,12 +12,21 @@ import LocalizationProvider from '@mui/lab/LocalizationProvider';
 import "../Component/Header/Header.css"
 import "../Component/Siderbar/Sidebar.css"
 // import "../Styles/Simple.module.css"
+import {wrapper} from "../Store/Store"
+import { Provider } from 'react-redux';
 
 
 const clientSideEmotionCache = createEmotionCache();
 
 function TokyoApp(props) {
-  const { Component, emotionCache = clientSideEmotionCache, pageProps } = props;
+
+    var { Component, ...rest } = props
+
+    // var { emotionCache = clientSideEmotionCache, pageProps } = wrapper.useWrappedStore(rest);
+    var { store, props } = wrapper.useWrappedStore(rest);
+
+
+  const {  emotionCache = clientSideEmotionCache, pageProps } = props;
   const getLayout = Component.getLayout ?? ((page) => page);
 
   Router.events.on('routeChangeStart', nProgress.start);
@@ -26,6 +35,7 @@ function TokyoApp(props) {
 
   return (
     <CacheProvider value={emotionCache}>
+      <Provider store={store}>
       <Head>
         <title>Tokyo Free Black NextJS Javascript Admin Dashboard</title>
         <meta
@@ -41,8 +51,10 @@ function TokyoApp(props) {
           </LocalizationProvider>
         </ThemeProvider>
       </SidebarProvider>
+      </Provider>
     </CacheProvider>
   );
 }
 
 export default TokyoApp;
+// export default wrapper.withRedux(TokyoApp);

@@ -56,7 +56,6 @@ const SipPage = () => {
         .select('*')
         .eq('user_id', userData.id);
 
-      console.log(sipResponse);
       if (sipResponse.status == 200) {
         setSipData(sipResponse.data);
         setDataFetched(true);
@@ -159,7 +158,6 @@ const SipPage = () => {
           .update(dataObj)
           .eq('sip_table_id', id)
 
-          console.log(sipResponse)
 
           if (sipResponse.error) {
             handleSnackBarClick();
