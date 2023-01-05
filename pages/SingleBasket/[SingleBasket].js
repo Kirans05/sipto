@@ -62,6 +62,7 @@ import { LocalizationProvider } from '@mui/x-date-pickers/LocalizationProvider';
 // import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs';
 import { AdapterDateFns } from '@mui/x-date-pickers/AdapterDateFns'
 import { DesktopDatePicker } from '@mui/x-date-pickers';
+import axios from 'axios';
 
 
 const SingleBasket = () => {
@@ -335,18 +336,18 @@ const SingleBasket = () => {
     }
   });
 
-  const fetchChartDetails = async () => {
-    let response = await fetch(
-      `https://api.coingecko.com/api/v3/coins/bitcoin/market_chart?vs_currency=usd&days=${NoOfDays}`
-    );
+  // const fetchChartDetails = async () => {
+  //   // let response = await fetch(
+  //   //   `https://api.coingecko.com/api/v3/coins/bitcoin/market_chart?vs_currency=usd&days=${NoOfDays}`
+  //   // );
 
-    let data = await response.json();
-    setChartOptions({...chartOptions, series:[{...chartOptions.series[0], data: data.prices}]
-      // series: {
-      //   data: data.prices
-      // }
-    });
-  };
+  //   // let data = await response.json();
+  //   // setChartOptions({...chartOptions, series:[{...chartOptions.series[0], data: data.prices}]
+  //   //   // series: {
+  //   //   //   data: data.prices
+  //   //   // }
+  //   // });
+  // };
 
   const investHandler = async (totalPrice) => {
     if (
@@ -423,6 +424,7 @@ const SingleBasket = () => {
         .from('bakset_Table')
         .select('*')
         .eq('id', basketId);
+
         
         let labelData = response.data[0].constituents.map(item => {
           return `${item.crypto.name} - ${item.weight}%`
@@ -443,8 +445,20 @@ const SingleBasket = () => {
             hoverOffset:4
         }]
         })
-        console.log(response.data[0])
         setbasketDetails(response.data[0]);
+
+        let priceList
+        if(NoOfDays == 1){
+          priceList = JSON.parse(response.data[0].price_list_1d)
+        }else if(NoOfDays == 7){
+          priceList = JSON.parse(response.data[0].price_list_7d)
+        }else if(NoOfDays == 14){
+          priceList = JSON.parse(response.data[0].price_list_14d)
+        }else if(NoOfDays == 30){
+          priceList = JSON.parse(response.data[0].price_list_30d)
+        }
+
+        setChartOptions({...chartOptions, series:[{...chartOptions.series[0], data: priceList}]});
     } catch (err) {}
   };
 
@@ -665,9 +679,65 @@ const SingleBasket = () => {
 
   }
 
+
+
+
+  // const fetchIds = async () => {
+  //   try{
+  //     let response = await supabase
+  //       .from("assests_table")
+  //       .select("id")
+  //       .order("id",{ascending:true})
+
+  //     console.log(response)
+  //   }catch(err){
+
+  //   }
+  //   let data = [{"id":"cf08d385-690e-440b-8afc-b2d893f51d6d"}, 
+  //   {"id":"ed28041d-98f4-45cf-ad86-4d7a29d46277"}, 
+  //   {"id":"8fac2e23-3e3f-4875-a797-8bb70a2789c6"}, 
+  //   {"id":"df4a8754-1c62-4795-bb18-3f0817de55d7"}, 
+  //   {"id":"87f9f3b7-2fd5-4ece-8c3d-8ca341d1b4a9"}, 
+  //   {"id":"77f5eb92-aba2-429c-b1a4-563c40b4ea3c"}, 
+  //   {"id":"e76b113b-d5b7-4973-a1fc-899edfbc2c89"}, 
+  //   {"id":"cfbd4514-2d28-417a-a04e-8e78d8add20e"}]
+
+  //   let crypoto = [{"id":"binance-usd"}, 
+  //   {"id":"binancecoin"}, 
+  //   {"id":"bitcoin"}, 
+  //   {"id":"cardano"}, 
+  //   {"id":"dogecoin"}, 
+  //   {"id":"ethereum"}, 
+  //   {"id":"matic-network"}, 
+  //   {"id":"usd-coin"}]
+
+
+  //   try{
+  //     for(let i=0; i<data.length; i++){
+  //       let chartResponse = await axios(`https://api.coingecko.com/api/v3/coins/${crypoto[i].id}/market_chart?vs_currency=usd&days=30`)
+
+  //       console.log(chartResponse.data.prices)
+
+
+  //       let supabaseResponse = await supabase
+  //         .from("bakset_Table")
+  //         .update({
+  //           "price_list_30d":JSON.stringify(chartResponse.data.prices)
+  //         })
+  //         .eq("id",data[i].id)
+
+        
+  //         console.log(supabaseResponse)
+
+  //     }
+  //   }catch(err){
+
+  //   }
+  // }
+
   useEffect(() => {
     setUserDetails(JSON.parse(localStorage.getItem('userData')));
-    fetchChartDetails();
+    // fetchChartDetails();
     fetchSingleBasketDetails();
   }, [NoOfDays]);
 
@@ -681,6 +751,7 @@ const SingleBasket = () => {
         <Sidebar />
         <Box className={Styles.headerAndMainCompo}>
           <Header />
+          {/* <button onClick={fetchIds}>fetchIds</button> */}
           {basketDetails == ''  ? null : (
             <Box className={Styles.mainBox}>
               <Box className={Styles.basketBreifInfo}>
