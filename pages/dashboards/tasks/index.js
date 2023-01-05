@@ -39,6 +39,7 @@ import HighestReturnCard from '../../../src/components/HighestReturnCard/Highest
 import { useRouter } from 'next/router';
 import {useDispatch, useSelector} from "react-redux"
 import {addUserData} from "../../../Store/UserSlice"
+import {addBasketData} from "../../../Store/BasketSlice"
 
 const TabsContainerWrapper = styled(Box)(
   ({ theme }) => `
@@ -125,11 +126,10 @@ const TabsContainerWrapper = styled(Box)(
 function DashboardTasks() {
 
   const dispatch = useDispatch()
-  const userState = useSelector((state) => state.userDataSlice)
+  const {userData} = useSelector((state) => state.userDataSlice)
+  const {basketData} = useSelector((state) => state.basketDataSlice)
   const router = useRouter()
-  const [userDetails, setUserDetails] = useState('');
   const [rerender, setRerender] = useState(true);
-  const [basketData, setBasketData] = useState([]);
 
   const fetchUserDetails = async (user) => {
     let response = await supabase
@@ -139,12 +139,13 @@ function DashboardTasks() {
       .single();
 
     let { data } = response;
-    console.log(data)
+    // console.log(data)
     if(data.first_name == ""){
       localStorage.setItem('userData', JSON.stringify(data));
       router.push("/Profile")
     }
-    setUserDetails(data);
+    // setUserDetails(data);
+    localStorage.setItem('userData', JSON.stringify(data));
     dispatch(addUserData(data))
   };
 
@@ -155,13 +156,13 @@ function DashboardTasks() {
     };
     let response = await axios(getDetails);
     let { data } = response;
-    let filterItem = data.filter((item) => item.userKycId == userDetails.id);
+    let filterItem = data.filter((item) => item.userKycId == userData.id);
     if (filterItem.length == 0) {
       let postDetails = {
         url: 'https://637cac1f16c1b892ebbb6fe6.mockapi.io/userData',
         method: 'POST',
         data: {
-          userKycId: userDetails.id
+          userKycId: userData.id
         }
       };
       let postResponse = await axios(postDetails);
@@ -169,7 +170,7 @@ function DashboardTasks() {
         let supabaseResponse = await supabase
           .from('profiles')
           .update([{ kyc_verified: true }])
-          .eq('id', userDetails.id);
+          .eq('id', userData.id);
         if (supabaseResponse.status == 204) {
           setRerender(!rerender);
         }
@@ -185,7 +186,7 @@ function DashboardTasks() {
       }
 
       if (resp.data) {
-        setBasketData(resp.data);
+        dispatch(addBasketData(resp.data))
       }
     } catch (err) {}
   };
@@ -209,11 +210,11 @@ function DashboardTasks() {
         <Sidebar />
         <Box className={Styles.headerAndMainCompo}>
           <Header />
-          {userDetails == '' ? null : (
+          {userData == '' ? null : (
             <Alert
               severity="warning"
               sx={{
-                display: userDetails.kyc_verified == false ? 'flex' : 'none'
+                display: userData.kyc_verified == false ? 'flex' : 'none'
               }}
               onClick={kycVerification}
               className={Styles.alertMessage}
@@ -222,7 +223,7 @@ function DashboardTasks() {
               <span className={Styles.kycVerificationButton}>Verify Now!</span>
             </Alert>
           )}
-          {userDetails == '' ? (
+          {userData == '' ? (
             <Box className={Styles.skeletonBox}>
               <Box className={Styles.firstSkeletonBox}>
                 {
@@ -254,7 +255,7 @@ function DashboardTasks() {
                   Your PortFolio
                 </Typography>
                 <Typography className={Styles.portfolioAmount}>
-                  $ {userDetails.wallet_balance}
+                  $ {userData.wallet_balance}
                 </Typography>
                 <Link href="/PortfolioPage">
                   <button className={Styles.portfolionBtn}>
@@ -269,7 +270,7 @@ function DashboardTasks() {
                   Funds Available
                 </Typography>
                 <Typography className={Styles.fundAmount}>
-                  $ {userDetails.wallet_balance}
+                  $ {userData.wallet_balance}
                 </Typography>
                 <Box className={Styles.fund_withdrawBtn}>
                   <Link href="/FundPage">

@@ -61,23 +61,97 @@ const AssetsPage = () => {
   const [snackBarColor, setSnackBarColor] = useState('success');
 
   const fetchChartDetails = async () => {
-    let response = await fetch(
-      `https://api.coingecko.com/api/v3/coins/${coinId}/market_chart?vs_currency=usd&days=${NoOfDays}`
-    );
+    // let response = await fetch(
+    //   `https://api.coingecko.com/api/v3/coins/${coinId}/market_chart?vs_currency=usd&days=${NoOfDays}`
+    // );
 
-    let data = await response.json();
-    setChartOptions({
-      series: {
-        data: data.prices
+    // let data = await response.json();
+    // setChartOptions({
+    //   series: {
+    //     data: data.prices
+    //   }
+    // });
+    try{
+      let days
+      if(NoOfDays == 1){
+        days = "price_list_1d"
+      }else if(NoOfDays == 7){
+        days = "price_list_7d"
+      }else if(NoOfDays == 14){
+        days = "price_list_14d"
+      }else if(NoOfDays == 30){
+        days = "price_list_30d"
       }
-    });
+      let chartResponse = await supabase  
+        .from("assests_table")
+        .select(days)
+        .eq('id',coinId)
+
+      if(chartResponse.error){
+        return
+      }
+
+        let chartData 
+        if(NoOfDays == 1){
+          chartData = JSON.parse(chartResponse.data[0].price_list_1d)
+        }else if(NoOfDays == 7){
+          chartData = JSON.parse(chartResponse.data[0].price_list_7d)
+        }else if(NoOfDays == 14){
+          chartData = JSON.parse(chartResponse.data[0].price_list_14d)
+        }else if(NoOfDays == 30){
+          chartData = JSON.parse(chartResponse.data[0].price_list_30d)
+        }
+
+        setChartOptions({
+            series: {
+              data: chartData
+            }
+          });
+      
+      // console.log(JSON.parse(chartResponse.data[0].price_list_1d))
+    }catch(err){
+
+    }
   };
 
-  const fetchdata = async () => {
-    let response = await axios(
-      `https://api.coingecko.com/api/v3/coins/${coinId}?tickers=true&market_data=true&community_data=false&developer_data=false`
-    );
-    setCoinDetails(response.data);
+  const fetchChartData = async () => {
+    try{
+      let dataResponse = await supabase
+        .from("assests_table")
+        .select("*")
+        .eq("id",coinId)
+      
+        console.log(dataResponse)
+
+        if(dataResponse.error){
+
+        }
+
+
+        if(dataResponse.status == 200){
+          setCoinDetails(dataResponse.data[0])
+        }
+    }catch(err){
+
+    }
+    // try{
+    //   let dataResponse = await supabase
+    //     .from("assests_table")
+    //     .select("*")
+    //     .eq("id",coinId)
+
+    //     console.log(dataResponse)
+    //     if(dataResponse.error){
+    //       return
+    //     }
+
+    //     if(dataResponse.status == 200){
+    //       setCoinDetails(dataResponse.data[0]);
+    //     }
+    // }catch(err){
+
+    // }
+
   };
 
   const handleModalOpen = () => setModalOpen(true);
@@ -242,7 +316,7 @@ const AssetsPage = () => {
               let coinTableResponse = await supabase.rpc("update_coins_table", {
                 userid: userDetails.id,
                 coin_id: coinId,
-                purchase_price: Math.ceil(coinDetails.market_data.current_price.usd),
+                purchase_price: Math.ceil(JSON.parse(coinDetails.market_data).current_price.usd),
                 purchase_unit: unitValue,
               });
               if (coinTableResponse.data == true) {
@@ -252,17 +326,20 @@ const AssetsPage = () => {
                 handleModalClose();
                 return;
               }
-            } catch (err) {}
+            } catch (err) {
+            }
           }
-        } catch (err) {}
+        } catch (err) {
+        }
       }
-    } catch (err) {}
+    } catch (err) {
+    }
   };
 
   useEffect(() => {
     setUserDetails(JSON.parse(localStorage.getItem("userData")));
     fetchChartDetails();
-    fetchdata();
+    fetchChartData();
   }, [NoOfDays]);
 
   return (
@@ -275,6 +352,11 @@ const AssetsPage = () => {
       <Box className={Styles.headerAndMainCompo}>
         <Header />
         <Box className={Styles.SingleAssetDetailsMainPage}>
+          {/* <button onClick={addCHartData}>addCHartData</button>
+          <button onClick={insertData}>insertData</button>
+          <button onClick={inSupabase}>inSupabase</button>
+          <button onClick={fetchInsupa}>fetchInsupa</button> */}
+          {/* <button onClick={updateDesc}>updateDesc</button>  */}
         <Typography className={Styles.coindId}>{coinId}</Typography>
         <Box className={Styles.buttonGroup}>
           <button
@@ -323,7 +405,8 @@ const AssetsPage = () => {
             <Box className={Styles.coinImageAndName}>
               <Box
                 component={'img'}
-                src={coinDetails.image.large}
+                src={JSON.parse(coinDetails.detail_image).large}
+                // src={coinDetails.image.large}
                 className={Styles.coinImage}
               />
               <Typography className={Styles.coinName}>
@@ -336,7 +419,8 @@ const AssetsPage = () => {
                   Description
                 </Typography>
                 <Typography className={Styles.coinDescription}>
-                  {coinDetails.description.en}
+                  {/* {coinDetails.description.en} */}
+                  {JSON.parse(coinDetails.description).en}
                 </Typography>
               </Box>
               <Box className={Styles.coinPricingdetailsBox}>
@@ -344,23 +428,27 @@ const AssetsPage = () => {
                   Market cap rank - {coinDetails.market_cap_rank}
                 </Typography>
                 <Typography className={Styles.coinDetailsTypography}>
-                  Current price - {coinDetails.market_data.current_price.usd}
+                  Current price - {JSON.parse(coinDetails.market_data).current_price.usd}
+                  {/* Current price - {coinDetails.market_data.current_price.usd} */}
                 </Typography>
                 <Typography className={Styles.coinDetailsTypography}>
-                  Market Cap - {coinDetails.market_data.market_cap.usd}
+                  {/* Market Cap - {coinDetails.market_data.market_cap.usd} */}
+                  Market Cap - {JSON.parse(coinDetails.market_data).market_cap.usd}
                 </Typography>
                 <Typography className={Styles.coinDetailsTypography}>
                   Price Change in 24h -{' '}
                   {
-                    coinDetails.market_data
+                    JSON.parse(coinDetails.market_data)
                       .price_change_percentage_1h_in_currency.usd
+                    // coinDetails.market_data
+                    //   .price_change_percentage_1h_in_currency.usd
                   }
                   %
                 </Typography>
                 <Typography className={Styles.coinDetailsTypography}>
                   Price Change in 1y -{' '}
                   {
-                    coinDetails.market_data
+                      JSON.parse(coinDetails.market_data)
                       .price_change_percentage_1y_in_currency.usd
                   }
                   %
@@ -368,7 +456,7 @@ const AssetsPage = () => {
                 <Typography className={Styles.coinDetailsTypography}>
                   Price Change in 7d -{' '}
                   {
-                    coinDetails.market_data
+                    JSON.parse(coinDetails.market_data)
                       .price_change_percentage_7d_in_currency.usd
                   }
                   %
@@ -376,7 +464,7 @@ const AssetsPage = () => {
                 <Typography className={Styles.coinDetailsTypography}>
                   Price Change in 14d -{' '}
                   {
-                    coinDetails.market_data
+                    JSON.parse(coinDetails.market_data)
                       .price_change_percentage_14d_in_currency.usd
                   }
                   %
@@ -384,13 +472,13 @@ const AssetsPage = () => {
                 <Typography className={Styles.coinDetailsTypography}>
                   Price Change in 30d -{' '}
                   {
-                    coinDetails.market_data
+                    JSON.parse(coinDetails.market_data)
                       .price_change_percentage_30d_in_currency.usd
                   }
                   %
                 </Typography>
                 <Typography className={Styles.coinDetailsTypography}>
-                  Total Volume - {coinDetails.market_data.total_volume.usd}
+                  Total Volume - {JSON.parse(coinDetails.market_data).total_volume.usd}
                 </Typography>
               </Box>
             </Box>
@@ -422,7 +510,7 @@ const AssetsPage = () => {
                 />
                 <Typography>
                   Total amount -{' '}
-                  {unitValue * coinDetails.market_data.current_price.usd}
+                  {unitValue * JSON.parse(coinDetails.market_data).current_price.usd}
                 </Typography>
                 <Box
                   sx={{
@@ -442,7 +530,7 @@ const AssetsPage = () => {
                     className={Styles.modalPurchaseBtn}
                     onClick={() =>
                       investHandler(
-                        unitValue * coinDetails.market_data.current_price.usd
+                        unitValue * JSON.parse(coinDetails.market_data).current_price.usd
                       )
                     }
                   >

@@ -53,6 +53,7 @@ const WithDrawPage = () => {
   const [snackBarOpen, setSnackBarOpen] = useState(false);
   const [snackBarMsg, setSnackBarMsg] = useState("");
   const [snackBarColor, setSnackBarColor] = useState("success");
+  const [userData, setUserData] = useState("")
 
   const handleSnackBarClick = () => {
     setSnackBarOpen(true);
@@ -67,6 +68,22 @@ const WithDrawPage = () => {
   };
 
   const submitHandler = async () => {
+    if(userData.wallet_balance <= 0){
+      setSnackBarOpen(true);
+      setSnackBarMsg("Insufficient balance to withdraw");
+      setSnackBarColor("warning");
+      return
+    }
+
+
+    if(inputValue.amount > userData.wallet_balance){
+      setSnackBarOpen(true);
+      setSnackBarMsg("Insufficient balance to withdraw");
+      setSnackBarColor("warning");
+      return
+    }
+
+
     try {
       let supabaseResponse = await supabase.rpc("decrement_balance", {
         amount: inputValue.amount,
@@ -85,15 +102,18 @@ const WithDrawPage = () => {
             }
           );
 
+          if(transactionResponse.error){
+            setSnackBarOpen(true);
+            setSnackBarMsg("unable to complete Transaction.");
+            setSnackBarColor("warning");
+          }
+
           if (transactionResponse.data == true) {
             setSnackBarOpen(true);
             setSnackBarMsg("Successfully money withdrawed");
             setSnackBarColor("success");
-          } else {
-            setSnackBarOpen(true);
-            setSnackBarMsg("unable to complete Transaction");
-            setSnackBarColor("warning");
-          }
+          } 
+            
 
           setTimeout(() => {
             // router.push("Dashboard")
@@ -103,11 +123,37 @@ const WithDrawPage = () => {
     } catch (err) {}
   };
 
+  const fetchUserDetails = async (userId) => {
+    try{
+      let userResponse = await supabase
+        .from("profiles")
+        .select("*")
+        .eq("id",userId)
+
+      console.log(userResponse)
+
+      if(userResponse.error){
+
+      }
+
+
+      if(userResponse.status == 200){
+        setUserData(userResponse.data[0])
+      }
+    }catch(err){
+
+    }
+  }
+
+
   useEffect(() => {
-    let { user } = JSON.parse(
-      localStorage.getItem("sb-ziaxsvytbaahgjrompdd-auth-token")
-    );
-    setUserDetails(user);
+    let user = localStorage.getItem("sb-ziaxsvytbaahgjrompdd-auth-token")
+    if(user == null){
+      router.push("/LoginPage")
+    }else{
+      setUserDetails(JSON.parse(user).user)
+      fetchUserDetails(JSON.parse(user).user.id)
+    }
   }, []);
 
 

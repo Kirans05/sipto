@@ -25,8 +25,13 @@ import Sidebar from '../Component/Siderbar/Sidebar';
 import AccountBalanceWalletIcon from '@mui/icons-material/AccountBalanceWallet';
 import ClearIcon from '@mui/icons-material/Clear';
 import MuiAlert from '@mui/material/Alert';
+import {useDispatch, useSelector} from "react-redux"
 
 const Portfolio = () => {
+
+
+  const dispatch = useDispatch()
+  // const {positionsArr} = useSelector((state) => state.portfolioDataSlice)
   const Alert = React.forwardRef(function Alert(props, ref) {
     return <MuiAlert elevation={6} ref={ref} variant="filled" {...props} />;
   });

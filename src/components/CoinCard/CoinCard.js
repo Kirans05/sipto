@@ -9,10 +9,13 @@ const CoinCard = ({ item, index, Styles }) => {
     router.push(`IndividualAsset/${item.id}`);
   };
 
+
+  console.log(JSON.parse(item.detail_image))
+
   return (
     <Box className={Styles.coinCardMainBox}>
       <Box className={Styles.coinCardLeftPart} onClick={CoinClicked}>
-        <Box component={"img"} src={item.image} width={30} />
+        <Box component={"img"} src={JSON.parse(item.detail_image).large} width={30} />
         <Typography className={Styles.coinDetailsTypography}>{item.name}</Typography>
       </Box>
       <Box className={Styles.coindCardRightPart}>
