@@ -155,29 +155,31 @@ const AssestsIndividual = () => {
         tickLength:0
     }],
     yAxis: [{ // Primary yAxis
-        labels: {
-            // 
-            enabled:false
-        },
+      labels: {
+        format: '{value} ',
+        style: {
+            color: "green"
+        }
+    },
         title: {
-            // text: 'Temperature',
+            text: 'Vest',
             style: {
-                color: "red"
+                color: "green"
             }
         },
         
 
     }, { // Secondary yAxis
         title: {
-            text: 'Precipitation',
+            text: 'S&P500',
             style: {
-                color: "green"
+                color: "red"
             }
         },
         labels: {
             format: '{value} ',
             style: {
-                color: "green"
+                color: "red"
             }
         },
         opposite: true
@@ -202,7 +204,7 @@ const AssestsIndividual = () => {
         tooltip: {
             valueSuffix: ' '
         },
-          color:"green"
+          color:"red",
 
     }, {
         type: 'spline',
@@ -210,7 +212,8 @@ const AssestsIndividual = () => {
             -0.7, -11.0, -16.4],
         tooltip: {
             valueSuffix: ''
-        }
+        },
+        color:"green"
     }]
 });
 
@@ -261,17 +264,17 @@ const DognutOptions = {
         console.log(filterXAxisValues)
 
         let filterYaxisStockValue = fetchResponse.data[0].graph_1W.returns.map(item => {
-          return item.vest+"%"
+          return parseFloat(item.vest)
         })
 
         console.log(filterYaxisStockValue)
 
         let filterYaxisS_P_500Value = fetchResponse.data[0].graph_1W.returns.map(item => {
-          return item['sp500']+"%"
+          return parseFloat(item['sp500'])
         })
 
         console.log(filterYaxisS_P_500Value)
-        // setChartOptions({...chartOptions, xAxis:[{...chartOptions.xAxis[0],categories:filterXAxisValues}], series:[{...chartOptions.series[0], data:filterYaxisStockValue},{...chartOptions.series[1], data: filterYaxisS_P_500Value}]})
+        setChartOptions({...chartOptions, xAxis:[{...chartOptions.xAxis[0],categories:filterXAxisValues}], series:[{...chartOptions.series[0], data:filterYaxisStockValue},{...chartOptions.series[1], data: filterYaxisS_P_500Value}]})
       }
     } catch (err) {}
   };
