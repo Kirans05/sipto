@@ -1,0 +1,196 @@
+.simpleMainBox{
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+}
+
+.simpleMainBox .headerAndMainCompo{
+    width: 80%;
+    display: flex;
+    flex-direction: column;
+    row-gap: 20px;
+}
+
+
+.assestPageMainBox{
+    display: flex;
+    flex-direction: column;
+    padding: 3%;
+    row-gap: 30px;
+}
+
+
+.assestPageMainBox .firstRow{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    /* border: 2px solid blue; */
+    width: 100%;
+    justify-content: space-between;
+}
+
+
+.firstRow .coinImage{
+    width: 7%;
+}
+
+
+.firstRow .firtsRow_secondColumn{
+    display: flex;
+    flex-direction: column;
+    row-gap: 5px;
+}
+
+
+.firstRow .firstRow_thirdColumn{
+    display: flex;
+    flex-direction: column;
+    row-gap: 5px;
+    align-items: flex-end;
+}
+
+
+.assestPageMainBox .secondRow{
+    display: flex;
+    column-gap: 15px;
+}
+
+
+.secondRow .optionsTypo{
+    font-size: 20px;
+}
+
+
+.secondRow .optionsTypo:hover{
+    cursor: pointer;
+}
+
+
+.overViewBox{
+    display: flex;
+    flex-direction: column;
+    row-gap: 20px;
+}
+
+
+.overViewBox .about_weekRangeBox{
+    display: flex;
+    flex-direction: column;
+    row-gap: 20px;
+}
+
+
+.about_weekRangeBox .aboutBox{
+    display: flex;
+    flex-direction: column;
+    row-gap: 20px;
+}
+
+
+.about_weekRangeBox .weekRangeBox{
+    display: flex;
+    flex-direction: column;
+    row-gap: 20px;
+}
+
+
+.weekRangeBox .sliderBox{
+    display: flex;
+    align-items: center;
+    column-gap: 30px;
+}
+
+.about_weekRangeBox .expense_volumeBox{
+    display: flex;
+    column-gap: 30px;
+}
+
+
+.expense_volumeBox .expenseRatioBox{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    row-gap: 5px;
+}
+
+
+.expense_volumeBox .avgVolumeBox{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    row-gap: 5px;
+}
+
+
+.about_weekRangeBox .indicatorBox{
+    display: flex;
+    flex-direction: column;
+    row-gap: 5px;
+}
+
+.overViewBox .largestHoldingBox{
+    display: flex;
+    flex-direction: column;
+    row-gap: 10px;
+}
+
+
+.returnBox{
+    display: flex;
+    flex-direction: column;
+    row-gap: 20px;
+}
+
+.returnBox .returnBoxDetails{
+    display: flex;
+    flex-direction: column;
+    row-gap: 20px;
+}
+
+.returnBoxDetails .header{
+    width: 100%;
+    display: flex;
+}
+
+
+.header .timeFrameTypo{
+    width: 25%;
+}
+
+
+.header .cryptoTypo{
+    width: 25%;
+}
+
+
+.header .s_p_500Typo{
+    width: 25%;
+}
+
+
+.header .tickerTypo{
+    width: 25%;
+}
+
+.returnBoxDetails .detailBox{
+    display: flex;
+    /* flex-direction: column; */
+}
+
+
+.detailBox .timeFrameTypo{
+    width: 25%;
+}
+
+
+.detailBox .cryptoTypo{
+    width: 25%;
+}
+
+.detailBox .s_p_500Typo{
+    width: 25%;
+}
+
+.detailBox .tickerTypo{
+    width: 25%;
+}

@@ -61,16 +61,6 @@ const AssetsPage = () => {
   const [snackBarColor, setSnackBarColor] = useState('success');
 
   const fetchChartDetails = async () => {
-    // let response = await fetch(
-    //   `https://api.coingecko.com/api/v3/coins/${coinId}/market_chart?vs_currency=usd&days=${NoOfDays}`
-    // );
-
-    // let data = await response.json();
-    // setChartOptions({
-    //   series: {
-    //     data: data.prices
-    //   }
-    // });
     try{
       let days
       if(NoOfDays == 1){

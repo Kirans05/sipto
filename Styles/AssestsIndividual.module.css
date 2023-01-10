@@ -1,0 +1,607 @@
+.simpleMainBox{
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+}
+
+.simpleMainBox .headerAndMainCompo{
+    width: 80%;
+    display: flex;
+    flex-direction: column;
+    row-gap: 20px;
+}
+
+.singleAssestMainBox{
+    width: 100%;
+    padding: 2%;
+    display: flex;
+    flex-direction: column;
+    row-gap: 30px;
+}
+
+
+.singleAssestMainBox .firstBox{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+
+.firstBox .imageBox{
+    display: flex;
+    align-items: center;
+    column-gap: 30px;
+}
+
+
+.imageBox .ticker_titleBox{
+    display: flex;
+    flex-direction: column;
+}
+
+
+.ticker_titleBox .typo{
+    font-size: 17px;
+}
+
+.imageBox .assestImage{
+    width: 15%;
+}
+
+
+.firstBox .priceBox{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+}
+
+.priceBox .typo{
+    font-size: 17px;
+}
+
+
+
+.singleAssestMainBox .secondBox{
+    display: flex;
+    column-gap: 20px;
+    align-items: center;
+}
+
+
+.secondBox .typo{
+    font-size: 18px;
+}
+
+
+.secondBox .typo:hover{
+    cursor: pointer;
+}
+
+
+.singleAssestMainBox .overViewBox{
+    display: flex;
+    flex-direction: column;
+    row-gap: 30px;
+}
+
+
+.overViewBox .performanceTypo{
+    font-size: 18px;
+}
+
+
+.overViewBox .about_52WeekBox{
+    display: flex;
+    flex-direction: column;
+    row-gap: 30px;
+}
+
+
+.about_52WeekBox .aboutTypo{
+    font-size: 18px;
+}
+
+
+.about_52WeekBox .about_description_typo{
+    font-size: 15px;
+}
+
+
+.about_52WeekBox .WeekRange52Box{
+    display: flex;
+    flex-direction: column;
+    row-gap: 10px;
+}
+
+.WeekRange52Box .weekRangeTitleTypo{
+    font-size: 18px;
+}
+
+
+.WeekRange52Box .priceRange{
+    display: flex;
+    align-items: center;
+    column-gap: 30px;
+    width: 50%;
+}
+
+
+.about_52WeekBox .differentRationBox{
+    display: flex;
+    align-items: center;
+    column-gap: 50px;
+}
+
+
+.differentRationBox .individualRation{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.overViewBox .sectorBreakdownBox{
+    display: flex;
+    flex-direction: column;
+    row-gap: 30px;
+}
+
+
+.sectorBreakdownBox .titleTypo{
+    font-size: 18px;
+}
+
+
+.sectorBreakdownBox .dognutBox{
+    height: 30vh;
+    display: flex;
+    justify-content: center;
+}
+
+
+.overViewBox .largestHoldingsBox{
+    display: flex;
+    flex-direction: column;
+    row-gap: 30px;
+    /* border: 2px solid red; */
+}
+
+.largestHoldingsBox .largestHoldingsTitle{
+    font-size: 18px;
+}
+
+
+.largestHoldingsBox .holdingDetailsBox{
+    display: flex;
+    flex-direction: column;
+    row-gap: 10px;
+}
+
+.holdingDetailsBox .singleHoldingDetailsBox{
+    display: flex;
+    justify-content: space-between;
+}
+
+
+.singleHoldingDetailsBox .holdingsTitleTypo{
+    font-size: 15px;
+}
+
+
+.singleHoldingDetailsBox .holdingsPercentageTypo{
+    font-size: 15px;
+}
+
+
+.singleAssestMainBox .returnBox{
+    display: flex;
+    flex-direction: column;
+    row-gap: 30px;
+}
+
+
+.returnBox .returnBoxTitleTypo{
+    font-size: 18px;
+}
+
+
+.returnBox .returnBoxTable{
+    display: flex;
+    flex-direction: column;
+    row-gap: 10px;
+}
+
+.returnBoxTable .tableHeader{
+    display: flex;
+    width: 50%;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 2px solid rgb(38,43,71);
+}
+
+.returnBoxTable .tableHeader:hover{
+    cursor: pointer;
+}
+
+
+.tableHeader .typo{
+    width: 33%;
+}
+
+
+.returnBoxTable .returnBoxSingleRow{
+    display: flex;
+    width: 50%;
+    justify-content: space-between;
+    border-bottom: 2px solid rgb(38,43,71);
+}
+
+
+.returnBoxTable .returnBoxSingleRow:hover{
+    cursor: pointer;
+}
+
+
+.returnBoxSingleRow .typo{
+    width: 33%;
+}
+
+.singleAssestMainBox .investButton{
+    margin-top: 20px;
+}
+
+
+
+.modalBoxStyle{
+    width: 30%;
+    position: absolute;
+    top: 35%;
+    left: 35%;
+    background-color: rgb(7,12,39);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    row-gap: 30px;
+    padding: 2% 5%;
+    /* rgb(87,202,34) */
+    /* rgb(255,25,67) */
+}
+
+
+.modalPurchaseBtn{
+    background-color:rgb(87,202,34);
+    padding: 4% 8%;
+    border: none;
+    border-radius: 10px;
+}
+
+.modalCancelBtn{
+    background-color:rgb(255,25,67);
+    padding: 4% 8%;
+    border: none;
+    border-radius: 10px;
+}
+
+.modalPurchaseBtn:hover{
+    cursor: pointer;
+}
+
+.modalCancelBtn:hover{
+    cursor: pointer;
+}
+
+
+@media (min-width:0px) and (max-width:480px){
+    .simpleMainBox .headerAndMainCompo{
+        width: 100%;
+    }
+
+    
+.singleAssestMainBox{
+    padding: 3%;
+}
+
+
+.singleAssestMainBox .firstBox{
+}
+
+
+.firstBox .imageBox{
+    column-gap: 10px;
+}
+
+
+.imageBox .ticker_titleBox{
+}
+
+
+.ticker_titleBox .typo{
+    font-size: 13px;
+}
+
+.imageBox .assestImage{
+    width: 12%;
+}
+
+
+.firstBox .priceBox{
+}
+
+.priceBox .typo{
+    font-size: 13px;
+}
+
+
+
+.singleAssestMainBox .secondBox{
+}
+
+
+.secondBox .typo{
+    font-size: 13px;
+}
+
+
+.singleAssestMainBox .overViewBox{
+}
+
+
+.overViewBox .performanceTypo{
+    font-size: 13px;
+}
+
+
+.overViewBox .about_52WeekBox{
+}
+
+
+.about_52WeekBox .aboutTypo{
+    font-size: 13px;
+}
+
+
+.about_52WeekBox .about_description_typo{
+    font-size: 13px;
+}
+
+
+.about_52WeekBox .WeekRange52Box{
+}
+
+.WeekRange52Box .weekRangeTitleTypo{
+    font-size: 13px;
+}
+
+
+.WeekRange52Box .priceRange{
+    width: 100%;
+}
+
+
+.about_52WeekBox .differentRationBox{
+    column-gap: 50px;
+}
+
+
+.differentRationBox .individualRation{
+    align-items: flex-start;
+}
+
+.overViewBox .sectorBreakdownBox{
+}
+
+
+.sectorBreakdownBox .titleTypo{
+    font-size: 13px;
+}
+
+
+.sectorBreakdownBox .dognutBox{
+}
+
+
+.overViewBox .largestHoldingsBox{
+}
+
+.largestHoldingsBox .largestHoldingsTitle{
+    font-size: 13px;
+}
+
+
+.largestHoldingsBox .holdingDetailsBox{
+}
+
+.holdingDetailsBox .singleHoldingDetailsBox{
+}
+
+
+.singleHoldingDetailsBox .holdingsTitleTypo{
+    font-size: 13px;
+}
+
+
+.singleHoldingDetailsBox .holdingsPercentageTypo{
+    font-size: 13px;
+}
+
+
+.singleAssestMainBox .returnBox{
+}
+
+
+.returnBox .returnBoxTitleTypo{
+}
+
+.singleAssestMainBox .investButton{
+    margin-top: 20px;
+}
+
+
+
+.modalBoxStyle{
+    width: 90%;
+    left: 5%;
+}
+
+
+}
+
+
+@media (min-width:481px) and (max-width:768px){
+    .simpleMainBox .headerAndMainCompo{
+        width: 100%;
+    }
+
+
+      
+.singleAssestMainBox{
+    padding: 3%;
+}
+
+
+.singleAssestMainBox .firstBox{
+}
+
+
+.firstBox .imageBox{
+    column-gap: 10px;
+}
+
+
+.imageBox .ticker_titleBox{
+}
+
+
+.ticker_titleBox .typo{
+    font-size: 15px;
+}
+
+.imageBox .assestImage{
+    width: 15%;
+}
+
+
+.firstBox .priceBox{
+}
+
+.priceBox .typo{
+    font-size: 15px;
+}
+
+
+
+.singleAssestMainBox .secondBox{
+}
+
+
+.secondBox .typo{
+    font-size: 15px;
+}
+
+
+.singleAssestMainBox .overViewBox{
+}
+
+
+.overViewBox .performanceTypo{
+    font-size: 15px;
+}
+
+
+.overViewBox .about_52WeekBox{
+}
+
+
+.about_52WeekBox .aboutTypo{
+    font-size: 15px;
+}
+
+
+.about_52WeekBox .about_description_typo{
+    font-size: 15px;
+}
+
+
+.about_52WeekBox .WeekRange52Box{
+}
+
+.WeekRange52Box .weekRangeTitleTypo{
+    font-size: 15px;
+}
+
+
+.WeekRange52Box .priceRange{
+    width: 70%;
+}
+
+
+.about_52WeekBox .differentRationBox{
+    column-gap: 50px;
+}
+
+
+.differentRationBox .individualRation{
+    align-items: center;
+}
+
+.overViewBox .sectorBreakdownBox{
+}
+
+
+.sectorBreakdownBox .titleTypo{
+    font-size: 15px;
+}
+
+
+.sectorBreakdownBox .dognutBox{
+}
+
+
+.overViewBox .largestHoldingsBox{
+}
+
+.largestHoldingsBox .largestHoldingsTitle{
+    font-size: 15px;
+}
+
+
+.largestHoldingsBox .holdingDetailsBox{
+}
+
+.holdingDetailsBox .singleHoldingDetailsBox{
+}
+
+
+.singleHoldingDetailsBox .holdingsTitleTypo{
+    font-size: 15px;
+}
+
+
+.singleHoldingDetailsBox .holdingsPercentageTypo{
+    font-size: 15px;
+}
+
+
+.singleAssestMainBox .returnBox{
+}
+
+
+.returnBox .returnBoxTitleTypo{
+}
+
+.singleAssestMainBox .investButton{
+    margin-top: 20px;
+}
+
+
+
+.modalBoxStyle{
+    width: 90%;
+    left: 5%;
+}
+}
+
+@media (min-width:769px)  and (max-width:1260px) {
+    .simpleMainBox .headerAndMainCompo{
+        width: 100%;
+    }
+}
